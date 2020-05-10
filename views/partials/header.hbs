@@ -1,0 +1,83 @@
+<link rel='stylesheet' href='/stylesheets/nav-bar.css' />
+<!--
+<section>
+    <ul>
+        <li><a class="isDisabled" href="/">Fitness</a></li>
+        <li><a class="able"href="/">Home</a></li>
+        <li><a href="#life-style">Life Style</a></li>
+        <li><a href="#nutrition">Nutrition</a></li>
+        <li><a href="#about">About us</a></li>
+        <li><a href="/login">Login/Register</a></li>
+    </ul>
+</section>
+-->
+<div class="topnav">
+  <a class="active" href="/">Fitness</a>
+  <div class="topnav-right">
+        <a class="able"href="/">Home</a>
+        <a href="#life-style">Life Style</a>
+        <a href="#nutrition">Nutrition</a>
+        <a href="#about">About us</a>
+        {{#if login}}
+          <a href='/profile'>Profile</a>
+        {{else}}
+          <a href='/login'>Register/login</a>
+        {{/if}}
+  
+  </div>
+</div>
+
+
+<script>
+    if(false) {
+        document.getElementById('user').outerHTML = "<a href='/profile'>Profile</a>";
+    }
+    else {
+        document.getElementById('user').outerHTML = "<a href='/login'>Register/login</a>";
+    }
+
+</script>
+<!-- 
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Fitness</a>
+  
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item navbar-right">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item navbar-right">
+        <a class="nav-link" href="#">Life Style</a>
+      </li>
+      <li class="nav-item navbar-right">
+        <a class="nav-link" href="#">Nutrition <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item navbar-right">
+        <a class="nav-link" href="#">About us</a>
+      </li>
+      <li class="nav-item navbar-right">
+        <a class="nav-link" href="#">Login</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+-->
+<!-- 
+ <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Dropdown
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      -->
