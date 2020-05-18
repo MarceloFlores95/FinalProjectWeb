@@ -12,7 +12,83 @@ const userSchema = mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    age: {
+        type: Number
+    },
+    height: {
+        type: Number
+    },
+    actual_weight: {
+        type: Number
+    },
+    initial_weight: {
+        type: Number
+    },
+    goal: {
+        type: Number
+    },
+    routines: [{
+        monday: {
+            muscle: {
+                type: String
+            },
+            exercise: {
+                type: String
+            }
+        },
+        tuesday: {
+            muscle: {
+                type: String
+            },
+            exercise: {
+                type: String
+            }
+        },
+        wednesday: {
+            muscle: {
+                type: String
+            },
+            exercise: {
+                type: String
+            }
+        },
+        thursday: {
+            muscle: {
+                type: String
+            },
+            exercise: {
+                type: String
+            }
+        },
+        friday: {
+            muscle: {
+                type: String
+            },
+            exercise: {
+                type: String
+            }
+        },
+        saturday: {
+            muscle: {
+                type: String
+            },
+            exercise: {
+                type: String
+            }
+        },
+        sunday: {
+            muscle: {
+                type: String
+            },
+            exercise: {
+                type: String
+            }
+        },
+        private: {
+            type: Boolean
+        }
+    }] 
 
 });
 
@@ -59,22 +135,25 @@ const Users = {
             .catch(err => {
                 return err
             })
+    },
+    updateUser: function (userInfo){
+        const id = {_id: userInfo.id};
+        upUser = userInfo
+        // console.log("Im in the schema")
+        // console.log(id)
+        // console.log(upUser)
+        return userCollection
+                .updateOne(id, upUser)
+                    .then(result => {
+                        console.log(result)
+                        return result
+                    })
+                    .catch(err => {
+                        return err
+                    })
+
     }
-   /*
-   getStudentsById : function(studentId) {
-        const filter = {id : studentId};
-        return studentsCollection
-                .find(filter)
-                .then(studentById => {
-                    console.log(studentById)
-                    if (studentById.length < 1)
-                        return undefined
-                    else
-                        return studentById
-                })
-                .catch(err => {
-                    return err
-                })
+    /*
    },
    deleteStudentById : function (studentId) {
         const filter = {id: studentId};

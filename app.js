@@ -79,7 +79,7 @@ app.listen(8080, () => {
     };
     mongoose.connect('mongodb://localhost/fitnessAppUsersdbs', settings,(err) => {
         if(err) {
-            return eject(err);
+            return reject(err);
         }
         else {
             console.log("Database connected succesfully")

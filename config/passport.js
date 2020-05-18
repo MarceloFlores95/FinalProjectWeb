@@ -39,7 +39,12 @@ passport.use('local.signup', new LocalStrategy({
         newUser.email = email;
         newUser.password = newUser.encryptPassword(password);
         newUser.name = req.body.name
-
+        newUser.age = 0
+        newUser.height = 0
+        newUser.actual_weight = 0
+        newUser.initial_weight = 0
+        newUser.goal = 0
+        newUser.routines.push({private:false})
         newUser.save(function(err, result) {
             if (err) {
                 return done(err);
