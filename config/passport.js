@@ -44,7 +44,7 @@ passport.use('local.signup', new LocalStrategy({
         newUser.actual_weight = 0
         newUser.initial_weight = 0
         newUser.goal = 0
-        newUser.routines.push({private:false})
+        // newUser.routines.push({private:false})
         newUser.save(function(err, result) {
             if (err) {
                 return done(err);

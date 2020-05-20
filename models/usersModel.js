@@ -30,7 +30,10 @@ const userSchema = mongoose.Schema({
     },
     routines: [{
         monday: {
-            muscle: {
+            muscle1: {
+                type: String
+            },
+            muscle2: {
                 type: String
             },
             exercise: {
@@ -38,7 +41,10 @@ const userSchema = mongoose.Schema({
             }
         },
         tuesday: {
-            muscle: {
+            muscle1: {
+                type: String
+            },
+            muscle2: {
                 type: String
             },
             exercise: {
@@ -46,7 +52,10 @@ const userSchema = mongoose.Schema({
             }
         },
         wednesday: {
-            muscle: {
+            muscle1: {
+                type: String
+            },
+            muscle2: {
                 type: String
             },
             exercise: {
@@ -54,7 +63,10 @@ const userSchema = mongoose.Schema({
             }
         },
         thursday: {
-            muscle: {
+            muscle1: {
+                type: String
+            },
+            muscle2: {
                 type: String
             },
             exercise: {
@@ -62,7 +74,10 @@ const userSchema = mongoose.Schema({
             }
         },
         friday: {
-            muscle: {
+            muscle1: {
+                type: String
+            },
+            muscle2: {
                 type: String
             },
             exercise: {
@@ -70,7 +85,10 @@ const userSchema = mongoose.Schema({
             }
         },
         saturday: {
-            muscle: {
+            muscle1: {
+                type: String
+            },
+            muscle2: {
                 type: String
             },
             exercise: {
@@ -78,7 +96,10 @@ const userSchema = mongoose.Schema({
             }
         },
         sunday: {
-            muscle: {
+            muscle1: {
+                type: String
+            },
+            muscle2: {
                 type: String
             },
             exercise: {
@@ -152,9 +173,66 @@ const Users = {
                         return err
                     })
 
+    },
+    addRoutineUser:function(userID,userRoutine) {
+        const id = {_id:userID}
+        console.log("AddUserTourine")
+        console.log(userRoutine)
+        return userCollection
+            .findOneAndUpdate(id,{$push:userRoutine})
+                .then(result => {
+                    console.log("addRoutineUser")
+                    console.log(result)
+                    return result
+                })
+                .catch(err => {
+                    return err
+                })
+    },
+    updateRoutine:function(userID,positionRoutine,userNewRoutine) {
+        const id = {_id:userID}
+        // console.log("updateRoutine")
+        // console.log(id)
+        // console.log(positionRoutine)
+        // console.log(userNewRoutine.routines)
+        // db.test_invoice.update({user_id : 123456 , "items.item_name":"my_item_one"} , {$inc: {"items.$.price": 10}})
+        let dp = `routines.${positionRoutine}`
+        let aux = {}
+        aux[dp] = userNewRoutine.routines
+        
+        return userCollection
+            .updateOne(id , {'$set': aux})
+                .then(result => {
+                   return result
+                })
+                .catch(err => {
+                    return err
+                })
+    },
+    deleteUser:function(userID) {
+        const id = {_id:userID}
+
+        return userCollection
+            .deleteOne(id)
+                .then(result => {
+                    return result
+                })
+                .catch(err => {
+                    return err
+                })
     }
     /*
    },
+               .forEach(function (doc) {
+                doc.routines.forEach(function (event) {
+                if (event._id == routineId) {
+                    event = userNewRoutine;
+                }
+                });
+                db.users.save(doc);
+            });
+
+            
    deleteStudentById : function (studentId) {
         const filter = {id: studentId};
         return studentsCollection

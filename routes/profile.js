@@ -26,7 +26,7 @@ router.get('/', isLoggedIn,function(req, res, next) {
     goal: req.user.goal,
     routines: req.user.routines
   });
-  console.log(req.user)
+  // console.log(req.user)
   /*
   let userID = req.user.id
   Users
@@ -48,12 +48,27 @@ router.get('/userInfo/:id',isLoggedIn ,(req,res,next) => {
   .then(result => {
       console.log(result)
       return res.status(200).json(result);
-    
   })
   .catch(err =>{
       res.statusMessage = "Something is wrong with the Database. Try again later."
       return res.status(500).end();
   })
+})
+
+router.get('/deleteUser/:id',isLoggedIn,(req,res,next) => {
+  let userID = req.params.id
+  console.log("Delete")
+  console.log(userID)
+
+  Users
+    .deleteUser(userID)
+    .then(result => {
+      res.redirect('/')
+      return res.status(200).json(result);
+    })
+    .catch(err => {
+      return res.status(500).end();
+    })
 })
 
 router.patch('/userPatch/:id', isLoggedIn, (req,res,next) => {
@@ -81,7 +96,7 @@ router.patch('/userPatch/:id', isLoggedIn, (req,res,next) => {
   if (req.headers.goal) {
     userUpdate['goal'] = req.headers.goal
   }
-  console.log(userUpdate)
+  // console.log(userUpdate)
   Users
     .updateUser(userUpdate)
         .then(result => {
@@ -90,6 +105,37 @@ router.patch('/userPatch/:id', isLoggedIn, (req,res,next) => {
         .catch(err => {
             return err
         })
+      
+})
+
+router.post('/userPushRoutine/:id',[jsonParser,isLoggedIn],(req,res,next) => {
+    let userID = req.params.id
+    // console.log()
+    let userRoutine = req.body
+    // console.log(userID,userRoutine)
+    Users
+      .addRoutineUser(userID,userRoutine)
+          .then(result => {
+            return res.status(202).json(result)
+          })
+          .catch(err => {
+            return err
+          })
+})
+
+router.patch('/userModifyRoutine/:id',[jsonParser,isLoggedIn], (req,res,next) => {
+  let userID = req.params.id
+  let positionRoutine = req.body[0]
+  let userNewRoutine = req.body[1]
+  Users
+    .updateRoutine(userID,positionRoutine,userNewRoutine)
+      .then(result => {
+        console.log(result)
+        return res.status(202).json(result)
+      })
+      .catch(err => {
+        return err
+      })
       
 })
 
