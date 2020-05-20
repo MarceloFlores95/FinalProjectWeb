@@ -12,11 +12,13 @@ var flash = require('connect-flash')
 var validator = require('express-validator')
 
 
-
-
 var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/login');
-var profileRouter = require('./routes/profile')
+var profileRouter = require('./routes/profile');
+var aboutUsRouter = require('./routes/aboutUs');
+var nutritionRouter = require('./routes/nutrition');
+var lifeStyleRouter = require('./routes/lifeStyle');
+
 
 var app = express();
 
@@ -44,7 +46,9 @@ app.use(function(req,res,next) {
   next()
 })
 
-
+app.use('/about-us', aboutUsRouter)
+app.use('/nutrition', nutritionRouter)
+app.use('/life-style', lifeStyleRouter)
 app.use('/login', loginRouter);
 app.use('/profile', profileRouter);
 app.use('/', indexRouter);
