@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
+var csrf = require('csurf');
+var passport = require('passport')
 
-/* GET users listing. */
+/* GET lifeStyle. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  res.render('lifeStyle', { title: 'Life Style' });
 });
 
 module.exports = router;
