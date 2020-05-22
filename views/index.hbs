@@ -1,4 +1,108 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<link rel='stylesheet' href='/stylesheets/home.css' />
 
-<p>Estoy en index</p>
+ {{!-- Start home --}}
+ <section  class="home"> 
+   <div class="container">
+     <h1>It's time to <span> workout</span></h1>
+     <h1>We are ready to</h1>
+     <h1><span> support</span> you</h1>
+   </div>
+   {{!-- go down --}}
+    <a href="#down" class="go-down">
+  	      <i class="fa fa-angle-down" aria-hidden="true"></i>
+  	  </a>
+   {{!-- go down --}}
+ </section>
+ {{!-- End home --}}
+
+ {{!-- Start Down --}}
+<section class="down" id="down">
+  	  <div class="container">
+  	  	  <div class="content">
+  	  	  	   <div class="box wow bounceInUp">
+  	  	  	   	   <div class="inner">
+  	  	  	   	   	   <div class="img">
+  	  	  	   	   	   	  <img src="images/data1.jpg" alt="down" />
+  	  	  	   	   	   </div>
+                       <div class="text">
+                       	   <h4>Benefit</h4>
+                       	   <p>Improves shape and physical resistance.
+                              Regulates blood pressure figures.
+                              Increase or maintain bone density.
+                              Improves insulin resistance.
+                              Helps maintain body weight.
+                              Increases muscle tone and strength.
+                              It improves the flexibility and mobility of the joints.</p>
+                       </div>
+  	  	  	   	   </div>
+  	  	  	   </div>
+  	  	  	   	<div class="box wow bounceInUp" data-wow-delay="0.2s">
+  	  	  	   	   <div class="inner">
+  	  	  	   	   	   <div class="img">
+  	  	  	   	   	   	  <img src="images/data2.jpg" alt="down" />
+  	  	  	   	   	   </div>
+                       <div class="text">
+                       	   <h4>Why is important to do exercise</h4>
+                       	   <p>Exercise is an important part of a healthy lifestyle.
+                              Exercise prevents health problems, increases strength,
+                              increases energy and can help reduce stress.
+                              It can also help maintain a healthy body weight and reduce appetite.</p>
+                       </div>
+  	  	  	   	   </div>
+  	  	  	   </div>
+  	  	  	   <div class="box wow bounceInUp" data-wow-delay="0.4s">
+  	  	  	   	   <div class="inner">
+  	  	  	   	   	   <div class="img">
+  	  	  	   	   	   	  <img src="images/data3.jpg" alt="down" />
+  	  	  	   	   	   </div>
+                       <div class="text">
+                       	   <h4>Video</h4>
+                       	   <p>https://www.youtube.com/watch?v=2zpOiFWGj2Y</p>
+                       </div>
+  	  	  	   	   </div>
+  	  	  	   </div>
+  	  	  </div>
+  	  </div>
+  </section>
+ {{!-- Finish Down --}}
+
+ <!-- Start Today -->
+ <section class="start-today">
+ 	<div class="container">
+ 		 <div class="content">
+ 		 	  <div class="box text wow slideInLeft">
+ 		 	  	 <h2>Start Your Training Today</h2>
+ 		 	  	 <p>It's time to hop on the summer body bandwagon! 
+              From now until Friday add unlimited tanning to your membership for only $30!,</p>
+ 		 	  	 <a href="" class="btn">Start Now</a>
+ 		 	  </div>
+ 		 	  <div class="box img wow slideInRight">
+ 		 	  	 <img src="images/gallery4.jpg" alt="start today" />
+ 		 	  </div>
+
+ 		 </div>
+ 	</div>
+ </section>
+<!-- End Start Today -->
+
+{{!-- fix --}}
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+ <script>
+	$(document).ready(function(){
+
+       $(".go-down").click(function(event){
+         if(this.hash !== ""){
+
+              event.preventDefault();
+
+              var hash=this.hash; 
+
+              $('html,body').animate({
+                scrollTop:$(hash).offset().top
+              },800 , function(){
+                 window.location.hash=hash;
+              });
+         }
+      })
+})
+</script>
