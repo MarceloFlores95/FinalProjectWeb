@@ -347,6 +347,85 @@ function createNewRoutine(id) {
 
 }
 
+function myExercise(id, results) {
+    var muscle = document.getElementById(id).value;
+    // document.getElementById(results).innerHTML = "You selected: " + muscle;
+    var videoSection = document.getElementById(results)
+    // watch?v=
+    // embed/
+    console.log(id)
+    console.log(id.search("First"))
+    console.log(results)
+    if (id.search("First") > -1) {
+        var videoBicep ="https://www.youtube.com/embed/iGYeHsgb4CY"
+        var videoTricep = "https://www.youtube.com/embed/Sa2GcjDnkm4"
+        var videoAbs = "https://www.youtube.com/embed/1919eTCoESo"
+        var videoChest = "https://www.youtube.com/embed/89e518dl4I8"
+        var videoBack ="https://www.youtube.com/embed/eE7dzM0iexc"
+        var videoLegs = "https://www.youtube.com/embed/rOxlw2VMSDw"
+    } else {
+        var videoBicep = "https://www.youtube.com/embed/1FN6ovYpkoM"
+        var videoTricep = "https://www.youtube.com/embed/SuajkDYlIRw"
+        var videoAbs = "https://www.youtube.com/embed/krlBcLYtDbk"
+        var videoChest = "https://www.youtube.com/embed/pJlE3CHP-Ac"
+        var videoBack = "https://www.youtube.com/embed/NoRkALo4AMQ"
+        var videoLegs = "https://www.youtube.com/embed/RjexvOAsVtI"
+    }
+
+    if (muscle == "Bicep") {
+        videoSection.innerHTML = "You selected: " +  muscle + "\n";
+        videoSection.innerHTML += ` <br>
+        <iframe width="140" height="105"
+            src=${videoBicep}>
+        </iframe>
+        `
+    }
+    if (muscle == "Tricep") {
+        videoSection.innerHTML = "You selected: " +  muscle + "\n";
+        videoSection.innerHTML += ` <br>
+        <iframe width="140" height="105"
+            src=${videoTricep}>
+        </iframe>
+        `
+    }
+    if (muscle == "Abs") {
+        videoSection.innerHTML = "You selected: " +  muscle + "\n";
+        videoSection.innerHTML += ` <br>
+        <iframe width="140" height="105"
+            src=${videoAbs}>
+        </iframe>
+        `
+    }
+    if (muscle == "Chest") {
+        videoSection.innerHTML = "You selected: " +  muscle + "\n";
+        videoSection.innerHTML += ` <br>
+        <iframe width="140" height="105"
+            src=${videoChest}>
+        </iframe>
+        `
+    }
+    if (muscle == "Back") {
+        videoSection.innerHTML = "You selected: " +  muscle + "\n";
+        videoSection.innerHTML += ` <br>
+        <iframe width="140" height="105"
+            src=${videoBack}>
+        </iframe>
+        `
+    }
+    if (muscle == "Legs") {
+        videoSection.innerHTML = "You selected: " +  muscle + "\n";
+        videoSection.innerHTML += ` <br>
+        <iframe width="140" height="105"
+            src=${videoLegs}>
+        </iframe>
+        `
+    }
+    if (muscle == "off") {
+        videoSection.innerHTML = "";
+    }
+}
+
+
 function saveNewRoutine(id) {
     console.log("Save New Routine")
 
@@ -360,7 +439,7 @@ function saveNewRoutine(id) {
         firstMuscleMonday = firstMuscleMonday.options[firstMuscleMonday.selectedIndex].value;
         let secondMuscleMonday = document.getElementById("Second_Muscle_Monday")
         secondMuscleMonday = secondMuscleMonday.options[secondMuscleMonday.selectedIndex].value;
-        
+
         let firstMuscleTuesday = document.getElementById("First_Muscle_Tuesday")
         firstMuscleTuesday = firstMuscleTuesday.options[firstMuscleTuesday.selectedIndex].value;
         let secondMuscleTuesday = document.getElementById("Second_Muscle_Tuesday")
@@ -384,43 +463,274 @@ function saveNewRoutine(id) {
         let privateRoutine = document.getElementById("privateRoutine")
         privateRoutine = privateRoutine.options[privateRoutine.selectedIndex].value;
 
-        if (privateRoutine != "True") {
+        if (privateRoutine != "true") {
             privateRoutine = true
         } else {
             privateRoutine = false
         }
+        // Bicep
+        if (firstMuscleMonday == "Bicep" ) {
+            var videoMonday ="https://www.youtube.com/embed/iGYeHsgb4CY"
+        }
 
+        if(firstMuscleTuesday == "Bicep" ) {
+            var videoTuesday ="https://www.youtube.com/embed/iGYeHsgb4CY"  
+        }
+
+        if (firstMuscleWednesday == "Bicep") {
+            var videoWednesday ="https://www.youtube.com/embed/iGYeHsgb4CY"
+        }
+
+        if(firstMuscleThursday == "Bicep") {
+            var videoThursday ="https://www.youtube.com/embed/iGYeHsgb4CY"
+        }
+
+        if(firstMuscleFriday == "Bicep") {
+            var videoFriday ="https://www.youtube.com/embed/iGYeHsgb4CY"
+        }
+
+        // Tricep
+        if (firstMuscleMonday == "Tricep") {
+            var videoMonday = "https://www.youtube.com/embed/Sa2GcjDnkm4"
+        }
+
+        if (firstMuscleTuesday == "Tricep") {
+            var videoTuesday = "https://www.youtube.com/embed/Sa2GcjDnkm4"
+        }
+        if (firstMuscleWednesday == "Tricep") {
+            var videoWednesday = "https://www.youtube.com/embed/Sa2GcjDnkm4"
+        }
+        if (firstMuscleThursday == "Tricep") {
+            var videoThursday = "https://www.youtube.com/embed/Sa2GcjDnkm4"
+        }
+        if (firstMuscleFriday == "Tricep") {
+            var videoFriday = "https://www.youtube.com/embed/Sa2GcjDnkm4"
+        }
+        // ABS
+        if (firstMuscleMonday == "Abs") {
+            var videoMonday = "https://www.youtube.com/embed/1919eTCoESo"
+        }
+        if (firstMuscleTuesday == "Abs") {
+            var videoTuesday = "https://www.youtube.com/embed/1919eTCoESo"
+        }
+        if (firstMuscleWednesday == "Abs") {
+            var videoWednesday = "https://www.youtube.com/embed/1919eTCoESo"
+        }
+        if (firstMuscleThursday == "Abs") {
+            var videoThursday = "https://www.youtube.com/embed/1919eTCoESo"
+        }
+        if (firstMuscleFriday == "Abs") {
+            var videoFriday = "https://www.youtube.com/embed/1919eTCoESo"
+        }
+        // Chest
+        if (firstMuscleMonday == "Chest") {
+            var videoMonday = "https://www.youtube.com/embed/89e518dl4I8"
+        }
+        if (firstMuscleTuesday == "Chest") {
+            var videoTuesday = "https://www.youtube.com/embed/89e518dl4I8"
+        }
+        if (firstMuscleWednesday == "Chest") {
+            var videoWednesday = "https://www.youtube.com/embed/89e518dl4I8"
+        }
+        if (firstMuscleThursday == "Chest") {
+            var videoThursday = "https://www.youtube.com/embed/89e518dl4I8"
+        }
+        if (firstMuscleFriday == "Chest") {
+            var videoFriday = "https://www.youtube.com/embed/89e518dl4I8"
+        }
+        // Back
+        if (firstMuscleMonday == "Back") {
+            var videoMonday ="https://www.youtube.com/embed/eE7dzM0iexc" 
+        }
+        if (firstMuscleTuesday == "Back") {
+            var videoTuesday ="https://www.youtube.com/embed/eE7dzM0iexc" 
+        }
+        if (firstMuscleWednesday == "Back" ) {
+            var videoWednesday ="https://www.youtube.com/embed/eE7dzM0iexc"
+        }
+        if (firstMuscleThursday == "Back") {
+            var videoThursday ="https://www.youtube.com/embed/eE7dzM0iexc"
+        }
+        if (firstMuscleFriday == "Back") {
+            var videoFriday ="https://www.youtube.com/embed/eE7dzM0iexc"
+        }
+        // Legs
+        if (firstMuscleMonday == "Legs") {
+            var videoMonday = "https://www.youtube.com/embed/rOxlw2VMSDw"
+        }
+        if (firstMuscleTuesday == "Legs") {
+            var videoTuesday = "https://www.youtube.com/embed/rOxlw2VMSDw"
+        }
+        if (firstMuscleWednesday == "Legs") {
+            var videoWednesday = "https://www.youtube.com/embed/rOxlw2VMSDw"
+        }
+        if (firstMuscleThursday == "Legs") {
+            var videoThursday = "https://www.youtube.com/embed/rOxlw2VMSDw"
+        }
+        if (firstMuscleFriday == "Legs") {
+            var videoFriday = "https://www.youtube.com/embed/rOxlw2VMSDw"
+        }
+        // Off
+        if (firstMuscleMonday == "off") {
+            var videoMonday = "null"
+        }
+        if (firstMuscleTuesday == "off") {
+            var videoTuesday = "null"
+        }
+        if (firstMuscleWednesday == "off") {
+            var videoWednesday = "null"
+        }
+        if (firstMuscleThursday == "off") {
+            var videoThursday = "null"
+        }
+        if (firstMuscleFriday == "off") {
+            var videoFriday = "null"
+        }
+        // Bicep 2
+        if (secondMuscleMonday == "Bicep") {
+            var videoMonday2 ="https://www.youtube.com/embed/iGYeHsgb4CY"
+        }
+        if (secondMuscleTuesday == "Bicep") {
+            var videoTuesday2 ="https://www.youtube.com/embed/iGYeHsgb4CY"
+        }
+        if (secondMuscleWednesday == "Bicep") {
+            var videoWednesday2 ="https://www.youtube.com/embed/iGYeHsgb4CY"
+        }
+        if (secondMuscleThursday == "Bicep") {
+            var videoThursday2 ="https://www.youtube.com/embed/iGYeHsgb4CY"
+        }
+        if (secondMuscleFriday == "Bicep") {
+            var videoFriday2 ="https://www.youtube.com/embed/iGYeHsgb4CY"
+        }
+        // Tricep
+        if (secondMuscleMonday == "Tricep") {
+            var videoMonday2 = "https://www.youtube.com/embed/Sa2GcjDnkm4"
+        }
+        if (secondMuscleTuesday == "Tricep") {
+            var videoTuesday2 = "https://www.youtube.com/embed/Sa2GcjDnkm4"
+        }
+        if (secondMuscleWednesday == "Tricep") {
+            var videoWednesday2 = "https://www.youtube.com/embed/Sa2GcjDnkm4"
+        }
+        if (secondMuscleThursday == "Tricep") {
+            var videoThursday2 = "https://www.youtube.com/embed/Sa2GcjDnkm4"
+        }
+        if (secondMuscleFriday == "Tricep") {
+            var videoFriday2 = "https://www.youtube.com/embed/Sa2GcjDnkm4"
+        }
+        // Abs
+        if (secondMuscleMonday == "Abs") {
+            var videoMonday2 = "https://www.youtube.com/embed/1919eTCoESo"
+        }
+        if (secondMuscleTuesday == "Abs") {
+            var videoTuesday2 = "https://www.youtube.com/embed/1919eTCoESo"
+        }
+        if (secondMuscleWednesday == "Abs") {
+            var videoWednesday2 = "https://www.youtube.com/embed/1919eTCoESo"
+        }
+        if (secondMuscleThursday == "Abs") {
+            var videoThursday2 = "https://www.youtube.com/embed/1919eTCoESo"
+        }
+        if (secondMuscleFriday == "Abs") {
+            var videoFriday2 = "https://www.youtube.com/embed/1919eTCoESo"
+        }
+        // Chest
+        if (secondMuscleMonday == "Chest") {
+            var videoMonday2 = "https://www.youtube.com/embed/89e518dl4I8"
+        }
+        if (secondMuscleTuesday == "Chest") {
+            var videoTuesday2 = "https://www.youtube.com/embed/89e518dl4I8"
+        }
+        if (secondMuscleWednesday == "Chest") {
+            var videoWednesday2 = "https://www.youtube.com/embed/89e518dl4I8"
+        }
+        if (secondMuscleThursday == "Chest") {
+            var videoThursday2 = "https://www.youtube.com/embed/89e518dl4I8"
+        }
+        if (secondMuscleFriday == "Chest") {
+            var videoFriday2 = "https://www.youtube.com/embed/89e518dl4I8"
+        }
+        // Back
+        if (secondMuscleMonday == "Back") {
+            var videoMonday2 ="https://www.youtube.com/embed/eE7dzM0iexc"
+        }
+        if (secondMuscleTuesday == "Back") {
+            var videoTuesday2 ="https://www.youtube.com/embed/eE7dzM0iexc"
+        }
+        if (secondMuscleWednesday == "Back") {
+            var videoWednesday2 ="https://www.youtube.com/embed/eE7dzM0iexc"
+        }
+        if (secondMuscleThursday == "Back") {
+            var videoThursday2 ="https://www.youtube.com/embed/eE7dzM0iexc"            
+        }
+        if (secondMuscleFriday == "Back") {
+            var videoFriday2 ="https://www.youtube.com/embed/eE7dzM0iexc"
+        }
+        // Legs
+        if (secondMuscleMonday == "Legs") {
+            var videoMonday2 = "https://www.youtube.com/embed/rOxlw2VMSDw"
+        }
+        if (secondMuscleTuesday == "Legs") {
+            var videoTuesday2 = "https://www.youtube.com/embed/rOxlw2VMSDw"
+        }
+        if (secondMuscleWednesday == "Legs") {
+            var videoWednesday2 = "https://www.youtube.com/embed/rOxlw2VMSDw"
+        }
+        if (secondMuscleThursday == "Legs") {
+            var videoThursday2 = "https://www.youtube.com/embed/rOxlw2VMSDw"
+        }
+        if (secondMuscleFriday == "Legs") {
+            var videoFriday2 = "https://www.youtube.com/embed/rOxlw2VMSDw"
+        }
+        // off
+        if (secondMuscleMonday == "off") {
+            var videoMonday2 = "null"
+        }
+        if (secondMuscleTuesday == "off") {
+            var videoTuesday2 = "null"
+        }
+        if (secondMuscleWednesday == "off") {
+            var videoWednesday2 = "null"
+        }
+        if (secondMuscleThursday == "off") {
+            var videoThursday2 = "null"
+        }
+        if (secondMuscleFriday == "off") {
+            var videoFriday2 = "null"
+        }
+
+        // Data
         let data = { 
             routines:{ 
                 monday:{
                     muscle1: firstMuscleMonday,
                     muscle2: secondMuscleMonday,
-                    exercise: "Null"
+                    exercise: [videoMonday,videoMonday2]
                 },
                 tuesday:{
                     muscle1: firstMuscleTuesday,
                     muscle2: secondMuscleTuesday,
-                    exercise: "Null"
+                    exercise: [videoTuesday,videoTuesday2]
                 },
                 wednesday:{
                     muscle1: firstMuscleWednesday,
                     muscle2: secondMuscleWednesday,
-                    exercise: "Null"
+                    exercise: [videoWednesday,videoWednesday2]
                 },
                 thursday:{
                     muscle1: firstMuscleThursday,
                     muscle2: secondMuscleThursday,
-                    exercise: "Null"
+                    exercise: [videoThursday,videoThursday2]
                 },
                 friday:{
                     muscle1: firstMuscleFriday,
                     muscle2: secondMuscleFriday,
-                    exercise: "Null"
+                    exercise: [videoFriday,videoFriday2]
                 },
                 private: privateRoutine
             }
         }
-        
+        // console.log(data)
         let url = `profile/userPushRoutine/${id}`;
         
         let settings = {
@@ -474,7 +784,7 @@ function routinesFetchSection(id) {
         <div class= 'routineClass'>
             <button id = 'createRoutine' onclick="createNewRoutine('${id}')"> Create new routine</button>
     `
-    console.log(id)
+    // console.log(id)
     let url = `profile/userInfo/${id}`;
     
     let settings = {
@@ -490,33 +800,125 @@ function routinesFetchSection(id) {
         .then( responseJSON => {
             if (responseJSON.routines.length > 0) {
                 for ( let i = 0; i < responseJSON.routines.length; i ++ ){
+                    section.innerHTML +=`<label hidden for="" id ="labelForIDFromRoutine${i}">${responseJSON.routines[i]._id}</label>`
                     section.innerHTML += ` 
                                 <div class= 'eachRoutineClass'>
                                     <div class = "daysofexercise"> 
                                         <section>
                                             <h3>Monday:<h3>
                                             <h4>Muscles to train: ${responseJSON.routines[i].monday.muscle1} and ${responseJSON.routines[i].monday.muscle2}</h4>
+                                            <h4>Recommended videos:<h4>  `
+                    if(responseJSON.routines[i].monday.exercise[0] != "null") {
+                        section.innerHTML += ` 
+                                            <iframe width="280" height="210"
+                                                src=${responseJSON.routines[i].monday.exercise[0]}>
+                                            </iframe>
+                                            `
+                    }
+                    if(responseJSON.routines[i].monday.exercise[1] != "null") {
+                        section.innerHTML += ` 
+                                            <iframe width="280" height="210"
+                                                src=${responseJSON.routines[i].monday.exercise[1]}>
+                                            </iframe>
+                                            `
+                    }
+                    section.innerHTML += `                     
                                         </section>
                                         <section>
                                             <h3>Tuesday:<h3>
                                             <h4>Muscles to train: ${responseJSON.routines[i].tuesday.muscle1} and ${responseJSON.routines[i].tuesday.muscle2}</h4>
+                                            <h4>Recommended videos:<h4> 
+                                        `
+                    if(responseJSON.routines[i].tuesday.exercise[0] != "null") {
+                        section.innerHTML += ` 
+                                            <iframe width="280" height="210"
+                                                src=${responseJSON.routines[i].tuesday.exercise[0]}>
+                                            </iframe>
+                                            `
+                    }
+                    if(responseJSON.routines[i].tuesday.exercise[1] != "null") {
+                        section.innerHTML += ` 
+                                            <iframe width="280" height="210"
+                                                src=${responseJSON.routines[i].tuesday.exercise[1]}>
+                                            </iframe>
+                                            `
+                    }
+                    section.innerHTML += ` 
                                         </section>
                                         <section>
                                             <h3>Wednesday:<h3>
                                             <h4>Muscles to train: ${responseJSON.routines[i].wednesday.muscle1} and ${responseJSON.routines[i].wednesday.muscle2}</h4>
+                                            <h4>Recommended videos:<h4>
+                                            `
+                    if(responseJSON.routines[i].wednesday.exercise[0] != "null") {
+                        section.innerHTML += ` 
+                                            <iframe width="280" height="210"
+                                                src=${responseJSON.routines[i].wednesday.exercise[0]}>
+                                            </iframe>
+                                            `
+                    }
+                    if(responseJSON.routines[i].wednesday.exercise[1] != "null") {
+                        section.innerHTML += ` 
+                                            <iframe width="280" height="210"
+                                                src=${responseJSON.routines[i].wednesday.exercise[1]}>
+                                            </iframe>
+                                            `
+                    }
+                    section.innerHTML += `                       
                                         </section>
                                         <section>
                                             <h3>Thursday:<h3>
                                             <h4>Muscles to train: ${responseJSON.routines[i].thursday.muscle1} and ${responseJSON.routines[i].thursday.muscle2}</h4>
+                                            <h4>Recommended videos:<h4>
+                                            `
+                    if(responseJSON.routines[i].thursday.exercise[0] != "null") {
+                        section.innerHTML += ` 
+                                            <iframe width="280" height="210"
+                                                src=${responseJSON.routines[i].thursday.exercise[0]}>
+                                            </iframe>
+                                            `
+                    }
+                    if(responseJSON.routines[i].thursday.exercise[1] != "null") {
+                        section.innerHTML += ` 
+                                            <iframe width="280" height="210"
+                                                src=${responseJSON.routines[i].thursday.exercise[1]}>
+                                            </iframe>
+                                            `
+                    }
+                    section.innerHTML += `         
                                         </section>
                                         <section>
                                             <h3>Friday:<h3>
                                             <h4>Muscles to train: ${responseJSON.routines[i].friday.muscle1} and ${responseJSON.routines[i].friday.muscle2}</h4>
+                                            <h4>Recommended videos:<h4>
+                                            `
+                    if(responseJSON.routines[i].friday.exercise[0] != "null") {
+                        section.innerHTML += ` 
+                                            <iframe width="280" height="210"
+                                                src=${responseJSON.routines[i].friday.exercise[0]}>
+                                            </iframe>
+                                            `
+                    }
+                    if(responseJSON.routines[i].friday.exercise[1] != "null") {
+                        section.innerHTML += ` 
+                                            <iframe width="280" height="210"
+                                                src=${responseJSON.routines[i].friday.exercise[1]}>
+                                            </iframe>
+                                            `
+                    }
+                    section.innerHTML += `                          
                                         </section>
-                                        <p>This routine is ${responseJSON.routines[i].private}</p>
+                                        <p>This routine is 
+                                        `
+                    if(responseJSON.routines[i].private == true) {
+                        section.innerHTML += `private </p>`
+                    } else {
+                        section.innerHTML += `public </p>`
+                    }
+                    section.innerHTML += `                  
                                     </div>
                                     <button onclick=modifyRoutine(${JSON.stringify(responseJSON.routines[i])},${i})>Modify routine</button>
-                                    <button onclick=eraseRoutine(${i})>Erase routine</button>
+                                    <button onclick=eraseRoutine(${JSON.stringify(responseJSON._id)},${i},returnPositionRoutine(${i}))>Erase routine</button>
                                 </div> 
                     `
                 }
@@ -535,8 +937,31 @@ function routinesFetchSection(id) {
     section.innerHTML +=`</div> `
 }
 
-function eraseRoutine() {
+function eraseRoutine(id,position,idRoutine) {
+    console.log("Erase Routine")
     
+    let url = `profile/userDeleteRoutine/${id}`;
+    let settings = {
+        method: 'DELETE',
+        headers: {
+            position: position,
+            idRoutine: idRoutine
+        }
+    }
+    fetch(url, settings)
+        .then(response => {
+            //routinesFetchSection(id)
+            return response.json();
+            
+        })
+        .then(resultJSON => {
+            routinesFetchSection(id)
+            console.log(resultJSON)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+
 }
 
 function modifyRoutine(routine,positionRoutine) {
@@ -573,7 +998,6 @@ function modifyRoutine(routine,positionRoutine) {
 
 function saveModifyRoutine(positionRoutine, id) {
     console.log("Save Modify Routine")
-    
     routine = JSON.parse(positionRoutine)
     // console.log(routine)
     // console.log(routine._id)
@@ -613,42 +1037,274 @@ function saveModifyRoutine(positionRoutine, id) {
         let privateRoutine = document.getElementById("privateRoutineNew")
         privateRoutine = privateRoutine.options[privateRoutine.selectedIndex].value;
 
-        if (privateRoutine != "True") {
+        if (privateRoutine != "true") {
             privateRoutine = false
         } else {
             privateRoutine = true
         }
 
-        let data = { 
-            routines:{ 
-                monday:{
-                    muscle1: firstMuscleMonday,
-                    muscle2: secondMuscleMonday,
-                    exercise: "Null"
-                },
-                tuesday:{
-                    muscle1: firstMuscleTuesday,
-                    muscle2: secondMuscleTuesday,
-                    exercise: "Null"
-                },
-                wednesday:{
-                    muscle1: firstMuscleWednesday,
-                    muscle2: secondMuscleWednesday,
-                    exercise: "Null"
-                },
-                thursday:{
-                    muscle1: firstMuscleThursday,
-                    muscle2: secondMuscleThursday,
-                    exercise: "Null"
-                },
-                friday:{
-                    muscle1: firstMuscleFriday,
-                    muscle2: secondMuscleFriday,
-                    exercise: "Null"
-                },
-                private: privateRoutine
-            }
+        // Bicep
+        if (firstMuscleMonday == "Bicep" ) {
+            var videoMonday ="https://www.youtube.com/embed/iGYeHsgb4CY"
         }
+
+        if(firstMuscleTuesday == "Bicep" ) {
+            var videoTuesday ="https://www.youtube.com/embed/iGYeHsgb4CY"  
+        }
+
+        if (firstMuscleWednesday == "Bicep") {
+            var videoWednesday ="https://www.youtube.com/embed/iGYeHsgb4CY"
+        }
+
+        if(firstMuscleThursday == "Bicep") {
+            var videoThursday ="https://www.youtube.com/embed/iGYeHsgb4CY"
+        }
+
+        if(firstMuscleFriday == "Bicep") {
+            var videoFriday ="https://www.youtube.com/embed/iGYeHsgb4CY"
+        }
+
+        // Tricep
+        if (firstMuscleMonday == "Tricep") {
+            var videoMonday = "https://www.youtube.com/embed/Sa2GcjDnkm4"
+        }
+
+        if (firstMuscleTuesday == "Tricep") {
+            var videoTuesday = "https://www.youtube.com/embed/Sa2GcjDnkm4"
+        }
+        if (firstMuscleWednesday == "Tricep") {
+            var videoWednesday = "https://www.youtube.com/embed/Sa2GcjDnkm4"
+        }
+        if (firstMuscleThursday == "Tricep") {
+            var videoThursday = "https://www.youtube.com/embed/Sa2GcjDnkm4"
+        }
+        if (firstMuscleFriday == "Tricep") {
+            var videoFriday = "https://www.youtube.com/embed/Sa2GcjDnkm4"
+        }
+        // ABS
+        if (firstMuscleMonday == "Abs") {
+            var videoMonday = "https://www.youtube.com/embed/1919eTCoESo"
+        }
+        if (firstMuscleTuesday == "Abs") {
+            var videoTuesday = "https://www.youtube.com/embed/1919eTCoESo"
+        }
+        if (firstMuscleWednesday == "Abs") {
+            var videoWednesday = "https://www.youtube.com/embed/1919eTCoESo"
+        }
+        if (firstMuscleThursday == "Abs") {
+            var videoThursday = "https://www.youtube.com/embed/1919eTCoESo"
+        }
+        if (firstMuscleFriday == "Abs") {
+            var videoFriday = "https://www.youtube.com/embed/1919eTCoESo"
+        }
+        // Chest
+        if (firstMuscleMonday == "Chest") {
+            var videoMonday = "https://www.youtube.com/embed/89e518dl4I8"
+        }
+        if (firstMuscleTuesday == "Chest") {
+            var videoTuesday = "https://www.youtube.com/embed/89e518dl4I8"
+        }
+        if (firstMuscleWednesday == "Chest") {
+            var videoWednesday = "https://www.youtube.com/embed/89e518dl4I8"
+        }
+        if (firstMuscleThursday == "Chest") {
+            var videoThursday = "https://www.youtube.com/embed/89e518dl4I8"
+        }
+        if (firstMuscleFriday == "Chest") {
+            var videoFriday = "https://www.youtube.com/embed/89e518dl4I8"
+        }
+        // Back
+        if (firstMuscleMonday == "Back") {
+            var videoMonday ="https://www.youtube.com/embed/eE7dzM0iexc" 
+        }
+        if (firstMuscleTuesday == "Back") {
+            var videoTuesday ="https://www.youtube.com/embed/eE7dzM0iexc" 
+        }
+        if (firstMuscleWednesday == "Back" ) {
+            var videoWednesday ="https://www.youtube.com/embed/eE7dzM0iexc"
+        }
+        if (firstMuscleThursday == "Back") {
+            var videoThursday ="https://www.youtube.com/embed/eE7dzM0iexc"
+        }
+        if (firstMuscleFriday == "Back") {
+            var videoFriday ="https://www.youtube.com/embed/eE7dzM0iexc"
+        }
+        // Legs
+        if (firstMuscleMonday == "Legs") {
+            var videoMonday = "https://www.youtube.com/embed/rOxlw2VMSDw"
+        }
+        if (firstMuscleTuesday == "Legs") {
+            var videoTuesday = "https://www.youtube.com/embed/rOxlw2VMSDw"
+        }
+        if (firstMuscleWednesday == "Legs") {
+            var videoWednesday = "https://www.youtube.com/embed/rOxlw2VMSDw"
+        }
+        if (firstMuscleThursday == "Legs") {
+            var videoThursday = "https://www.youtube.com/embed/rOxlw2VMSDw"
+        }
+        if (firstMuscleFriday == "Legs") {
+            var videoFriday = "https://www.youtube.com/embed/rOxlw2VMSDw"
+        }
+        // Off
+        if (firstMuscleMonday == "off") {
+            var videoMonday = "null"
+        }
+        if (firstMuscleTuesday == "off") {
+            var videoTuesday = "null"
+        }
+        if (firstMuscleWednesday == "off") {
+            var videoWednesday = "null"
+        }
+        if (firstMuscleThursday == "off") {
+            var videoThursday = "null"
+        }
+        if (firstMuscleFriday == "off") {
+            var videoFriday = "null"
+        }
+        // Bicep 2
+        if (secondMuscleMonday == "Bicep") {
+            var videoMonday2 ="https://www.youtube.com/embed/iGYeHsgb4CY"
+        }
+        if (secondMuscleTuesday == "Bicep") {
+            var videoTuesday2 ="https://www.youtube.com/embed/iGYeHsgb4CY"
+        }
+        if (secondMuscleWednesday == "Bicep") {
+            var videoWednesday2 ="https://www.youtube.com/embed/iGYeHsgb4CY"
+        }
+        if (secondMuscleThursday == "Bicep") {
+            var videoThursday2 ="https://www.youtube.com/embed/iGYeHsgb4CY"
+        }
+        if (secondMuscleFriday == "Bicep") {
+            var videoFriday2 ="https://www.youtube.com/embed/iGYeHsgb4CY"
+        }
+        // Tricep
+        if (secondMuscleMonday == "Tricep") {
+            var videoMonday2 = "https://www.youtube.com/embed/SuajkDYlIRw"
+        }
+        if (secondMuscleTuesday == "Tricep") {
+            var videoTuesday2 = "https://www.youtube.com/embed/SuajkDYlIRw"
+        }
+        if (secondMuscleWednesday == "Tricep") {
+            var videoWednesday2 = "https://www.youtube.com/embed/SuajkDYlIRw"
+        }
+        if (secondMuscleThursday == "Tricep") {
+            var videoThursday2 = "https://www.youtube.com/embed/SuajkDYlIRw"
+        }
+        if (secondMuscleFriday == "Tricep") {
+            var videoFriday2 = "https://www.youtube.com/embed/SuajkDYlIRw"
+        }
+        // Abs
+        if (secondMuscleMonday == "Abs") {
+            var videoMonday2 = "https://www.youtube.com/embed/1919eTCoESo"
+        }
+        if (secondMuscleTuesday == "Abs") {
+            var videoTuesday2 = "https://www.youtube.com/embed/1919eTCoESo"
+        }
+        if (secondMuscleWednesday == "Abs") {
+            var videoWednesday2 = "https://www.youtube.com/embed/1919eTCoESo"
+        }
+        if (secondMuscleThursday == "Abs") {
+            var videoThursday2 = "https://www.youtube.com/embed/1919eTCoESo"
+        }
+        if (secondMuscleFriday == "Abs") {
+            var videoFriday2 = "https://www.youtube.com/embed/1919eTCoESo"
+        }
+        // Chest
+        if (secondMuscleMonday == "Chest") {
+            var videoMonday2 = "https://www.youtube.com/embed/89e518dl4I8"
+        }
+        if (secondMuscleTuesday == "Chest") {
+            var videoTuesday2 = "https://www.youtube.com/embed/89e518dl4I8"
+        }
+        if (secondMuscleWednesday == "Chest") {
+            var videoWednesday2 = "https://www.youtube.com/embed/89e518dl4I8"
+        }
+        if (secondMuscleThursday == "Chest") {
+            var videoThursday2 = "https://www.youtube.com/embed/89e518dl4I8"
+        }
+        if (secondMuscleFriday == "Chest") {
+            var videoFriday2 = "https://www.youtube.com/embed/89e518dl4I8"
+        }
+        // Back
+        if (secondMuscleMonday == "Back") {
+            var videoMonday2 ="https://www.youtube.com/embed/eE7dzM0iexc"
+        }
+        if (secondMuscleTuesday == "Back") {
+            var videoTuesday2 ="https://www.youtube.com/embed/eE7dzM0iexc"
+        }
+        if (secondMuscleWednesday == "Back") {
+            var videoWednesday2 ="https://www.youtube.com/embed/eE7dzM0iexc"
+        }
+        if (secondMuscleThursday == "Back") {
+            var videoThursday2 ="https://www.youtube.com/embed/eE7dzM0iexc"            
+        }
+        if (secondMuscleFriday == "Back") {
+            var videoFriday2 ="https://www.youtube.com/embed/eE7dzM0iexc"
+        }
+        // Legs
+        if (secondMuscleMonday == "Legs") {
+            var videoMonday2 = "https://www.youtube.com/embed/rOxlw2VMSDw"
+        }
+        if (secondMuscleTuesday == "Legs") {
+            var videoTuesday2 = "https://www.youtube.com/embed/rOxlw2VMSDw"
+        }
+        if (secondMuscleWednesday == "Legs") {
+            var videoWednesday2 = "https://www.youtube.com/embed/rOxlw2VMSDw"
+        }
+        if (secondMuscleThursday == "Legs") {
+            var videoThursday2 = "https://www.youtube.com/embed/rOxlw2VMSDw"
+        }
+        if (secondMuscleFriday == "Legs") {
+            var videoFriday2 = "https://www.youtube.com/embed/rOxlw2VMSDw"
+        }
+        // off
+        if (secondMuscleMonday == "off") {
+            var videoMonday2 = "null"
+        }
+        if (secondMuscleTuesday == "off") {
+            var videoTuesday2 = "null"
+        }
+        if (secondMuscleWednesday == "off") {
+            var videoWednesday2 = "null"
+        }
+        if (secondMuscleThursday == "off") {
+            var videoThursday2 = "null"
+        }
+        if (secondMuscleFriday == "off") {
+            var videoFriday2 = "null"
+        }
+
+    // Data
+    let data = { 
+        routines:{ 
+            monday:{
+                muscle1: firstMuscleMonday,
+                muscle2: secondMuscleMonday,
+                exercise: [videoMonday,videoMonday2]
+            },
+            tuesday:{
+                muscle1: firstMuscleTuesday,
+                muscle2: secondMuscleTuesday,
+                exercise: [videoTuesday,videoTuesday2]
+            },
+            wednesday:{
+                muscle1: firstMuscleWednesday,
+                muscle2: secondMuscleWednesday,
+                exercise: [videoWednesday,videoWednesday2]
+            },
+            thursday:{
+                muscle1: firstMuscleThursday,
+                muscle2: secondMuscleThursday,
+                exercise: [videoThursday,videoThursday2]
+            },
+            friday:{
+                muscle1: firstMuscleFriday,
+                muscle2: secondMuscleFriday,
+                exercise: [videoFriday,videoFriday2]
+            },
+            private: privateRoutine
+        }
+    }
 
 
         let Arr = [routine,data]
@@ -702,13 +1358,189 @@ function saveModifyRoutine(positionRoutine, id) {
 function returnIDRoutine() {
     console.log('returnIDRoutine')
     var labelRt = document.querySelector("#labelForIDRoutine").innerHTML
+    console.log(labelRt)
+    return labelRt
+}
+
+function returnPositionRoutine(i) {
+    console.log('returnPositionRoutine')
+    var labelRt = document.querySelector(`#labelForIDFromRoutine${i}`).innerHTML
+    console.log(labelRt)
     return labelRt
 }
 
 
-function exerciseSection() {
+function exerciseFetchSection(id) {
+    console.log(id)
+    let actualDate = new Date();
+    // let day = actualDate.getDay();
+    let day = 1
+    // section.innerHTML = `${day}`
 
-    section.innerHTML = `exercise`
+    // Sunday
+    if(day == 0) {
+        section.innerHTML = "Today is Sunday, relax!"
+    }
+    // Saturday
+    if(day == 6) {
+        section.innerHTML = "Today is Saturday, relax!"
+    }
+
+    let url = `profile/userInfo/${id}`;
+    
+    let settings = {
+        method : 'GET',
+    }
+    
+    fetch( url, settings )
+        .then( response => {
+            if( response.ok ){
+                return response.json();
+            }
+            throw new Error( response.statusText );
+        })
+        .then( responseJSON => {
+            // Monday
+            console.log(responseJSON)
+            if(day == 1) {
+                for ( let i = 0; i < responseJSON.routines.length; i ++ ){
+                    if(responseJSON.routines[i].monday.muscle1 == "null" || responseJSON.routines[i].monday.muscle2 == "null" ) {
+                        section.innerHTML = "You have a break day!"
+                    }
+                    section.innerHTML = `
+                    <div class="day">
+                        <p>Today is Monday, you choose this muscles to train </p>
+                        <label for="">Name:${responseJSON.routines[i].monday.muscle1}</label>
+                        <br>
+                        <iframe width="280" height="210"
+                            src=${responseJSON.routines[i].monday.exercise[0]}>
+                        </iframe>
+                        <br>
+                        <label for="">Name:${responseJSON.routines[i].monday.muscle2}</label>
+                        <br>
+                        <iframe width="280" height="210"
+                            src=${responseJSON.routines[i].monday.exercise[1]}>
+                        </iframe>
+                    </div>
+                    <div class="buttonInfo">
+                        <button id="modalUserInfo" onclick="editExercise()" >Modify Exercise</button>
+                    </div>
+                    `
+                }
+            }
+            // Tuesday
+            if(day == 2) {
+                for ( let i = 0; i < responseJSON.routines.length; i ++ ){
+                    if(responseJSON.routines[i].tuesday.muscle1 == "null" || responseJSON.routines[i].tuesday.muscle2 == "null") {
+                        section.innerHTML = "You have a break day!"
+                    }
+                    section.innerHTML = `
+                    <div class="day">
+                        <p>Today is Tuesday, you choose this muscles to train </p>
+                        <label for="">Name:${responseJSON.routines[i].tuesday.muscle1}</label>
+                        <br>
+                        <iframe width="280" height="210"
+                            src=${responseJSON.routines[i].tuesday.exercise[0]}>
+                        </iframe>
+                        <br>
+                        <label for="">Name:${responseJSON.routines[i].tuesday.muscle2}</label>
+                        <br>
+                        <iframe width="280" height="210"
+                            src=${responseJSON.routines[i].tuesday.exercise[1]}>
+                        </iframe>
+                    </div>
+                    <div class="buttonInfo">
+                        <button id="modalUserInfo" onclick="editExercise()" >Modify Exercise</button>
+                    </div>
+                    `
+                }
+            }
+            // Wednesday
+            if(day == 3) {
+                for ( let i = 0; i < responseJSON.routines.length; i ++ ){
+                    if(responseJSON.routines[i].wednesday.muscle1 == "null" || responseJSON.routines[i].wednesday.muscle2 == "null") {
+                        section.innerHTML = "You have a break day!"
+                    }
+                    section.innerHTML = `
+                    <div class="day">
+                        <p>Today is Wednesday, you choose this muscles to train </p>
+                        <label for="">Name:${responseJSON.routines[i].wednesday.muscle1}</label>
+                        <br>
+                        <iframe width="280" height="210"
+                            src=${responseJSON.routines[i].wednesday.exercise[0]}>
+                        </iframe>
+                        <br>
+                        <label for="">Name:${responseJSON.routines[i].wednesday.muscle2}</label>
+                        <br>
+                        <iframe width="280" height="210"
+                            src=${responseJSON.routines[i].wednesday.exercise[1]}>
+                        </iframe>
+                    </div>
+                    <div class="buttonInfo">
+                        <button id="modalUserInfo" onclick="editExercise()" >Modify Exercise</button>
+                    </div>
+                    `
+                }
+            }
+            // Thursday
+            if(day == 4) {
+                for ( let i = 0; i < responseJSON.routines.length; i ++ ){
+                    if(responseJSON.routines[i].thursday.muscle1 == "null" || responseJSON.routines[i].thursday.muscle2 == "null") {
+                        section.innerHTML = "You have a break day!"
+                    }
+                    section.innerHTML = `
+                    <div class="day">
+                        <p>Today is Thursday, you choose this muscles to train </p>
+                        <label for="">Name:${responseJSON.routines[i].thursday.muscle1}</label>
+                        <br>
+                        <iframe width="280" height="210"
+                            src=${responseJSON.routines[i].thursday.exercise[0]}>
+                        </iframe>
+                        <br>
+                        <label for="">Name:${responseJSON.routines[i].thursday.muscle2}</label>
+                        <br>
+                        <iframe width="280" height="210"
+                            src=${responseJSON.routines[i].thursday.exercise[1]}>
+                        </iframe>
+                    </div>
+                    <div class="buttonInfo">
+                        <button id="modalUserInfo" onclick="editExercise()" >Modify Exercise</button>
+                    </div>
+                    `
+                }
+            }
+            // Friday
+            if(day == 5) {
+                for ( let i = 0; i < responseJSON.routines.length; i ++ ){
+                    if(responseJSON.routines[i].friday.muscle1 == "null" || responseJSON.routines[i].friday.muscle2 == "null") {
+                        section.innerHTML = "You have a break day!"
+                    }
+                    section.innerHTML = `
+                    <div class="day">
+                        <p>Today is Friday, you choose this muscles to train </p>
+                        <label for="">Name:${responseJSON.routines[i].friday.muscle1}</label>
+                        <br>
+                        <iframe width="280" height="210"
+                            src=${responseJSON.routines[i].friday.exercise[0]}>
+                        </iframe>
+                        <br>
+                        <label for="">Name:${responseJSON.routines[i].friday.muscle2}</label>
+                        <br>
+                        <iframe width="280" height="210"
+                            src=${responseJSON.routines[i].friday.exercise[1]}>
+                        </iframe>
+                    </div>
+                    <div class="buttonInfo">
+                        <button id="modalUserInfo" onclick="editExercise()" >Modify Exercise</button>
+                    </div>
+                    `
+                }
+            }
+
+        })
+        .catch( err => {
+            console.log(err.message)
+        });
 }
 
 function userLogOut() {

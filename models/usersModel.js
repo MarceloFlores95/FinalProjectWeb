@@ -36,9 +36,9 @@ const userSchema = mongoose.Schema({
             muscle2: {
                 type: String
             },
-            exercise: {
+            exercise: [{
                 type: String
-            }
+            }]
         },
         tuesday: {
             muscle1: {
@@ -47,9 +47,9 @@ const userSchema = mongoose.Schema({
             muscle2: {
                 type: String
             },
-            exercise: {
+            exercise: [{
                 type: String
-            }
+            }]
         },
         wednesday: {
             muscle1: {
@@ -58,9 +58,9 @@ const userSchema = mongoose.Schema({
             muscle2: {
                 type: String
             },
-            exercise: {
+            exercise: [{
                 type: String
-            }
+            }]
         },
         thursday: {
             muscle1: {
@@ -69,9 +69,9 @@ const userSchema = mongoose.Schema({
             muscle2: {
                 type: String
             },
-            exercise: {
+            exercise: [{
                 type: String
-            }
+            }]
         },
         friday: {
             muscle1: {
@@ -80,9 +80,9 @@ const userSchema = mongoose.Schema({
             muscle2: {
                 type: String
             },
-            exercise: {
+            exercise: [{
                 type: String
-            }
+            }]
         },
         saturday: {
             muscle1: {
@@ -91,9 +91,9 @@ const userSchema = mongoose.Schema({
             muscle2: {
                 type: String
             },
-            exercise: {
+            exercise: [{
                 type: String
-            }
+            }]
         },
         sunday: {
             muscle1: {
@@ -102,9 +102,9 @@ const userSchema = mongoose.Schema({
             muscle2: {
                 type: String
             },
-            exercise: {
+            exercise: [{
                 type: String
-            }
+            }]
         },
         private: {
             type: Boolean
@@ -220,6 +220,35 @@ const Users = {
                 .catch(err => {
                     return err
                 })
+    },
+    deleteRoutine:function(userID, positionRoutine,idRoutine) {
+        const id = {_id:userID}
+        const idR = {_id:idRoutine}
+        let dp = `routines.${positionRoutine}`
+        //aux[dp] = userNewRoutine.routines
+        console.log(dp)
+        return userCollection
+            .updateOne(id,{$pull:{"routines":idR}})
+        /*
+        .updateOne(id, {$unset : {"routines.1" : 1 }})
+                    .then(result => {
+                        return result
+                    })
+                    .catch(err => {
+                        return err
+                    })
+        */
+                
+    // db.users.updateOne({'_id':ObjectId('5ec9e872f189fa10629c7f46')}, {$unset : {"routines.1" : 1 }});
+    
+    /*db.users.updateOne(
+        
+        {'_id':ObjectId('5ec9e872f189fa10629c7f46')}, 
+        {$pull : 
+            {"routines":{'_id':ObjectId('5eca2f4eb3bd8616968e7641')}}
+        }
+        
+        )*/
     }
     /*
    },
