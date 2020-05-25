@@ -109,7 +109,8 @@ const userSchema = mongoose.Schema({
         private: {
             type: Boolean
         }
-    }] 
+    }],
+    favorites: [] 
 
 });
 
@@ -249,6 +250,29 @@ const Users = {
         }
         
         )*/
+    },
+    addFavoriteRoutine:function(userID,userRoutine) {
+        const id = {_id:userID}
+        console.log("AddUserFavoriteRoutine")
+        console.log(userRoutine)
+        return userCollection
+            .findOneAndUpdate(id,{$push:{"favorites":userRoutine}},{useFindAndModify: false})
+                .then(result => {
+                    console.log(result)
+                    return result
+                })
+                .catch(err => {
+                    return err
+                })
+    },
+    deleteFavoriteRoutine:function(userID, positionRoutine,idRoutine) {
+        const id = {_id:userID}
+        const idR = {_id:idRoutine}
+        let dp = `favorites.${positionRoutine}`
+        //aux[dp] = userNewRoutine.routines
+        console.log(dp)
+        return userCollection
+            .updateOne(id,{$pull:{"favorites":idR}})
     }
     /*
    },

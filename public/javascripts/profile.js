@@ -463,7 +463,7 @@ function saveNewRoutine(id) {
         let privateRoutine = document.getElementById("privateRoutine")
         privateRoutine = privateRoutine.options[privateRoutine.selectedIndex].value;
 
-        if (privateRoutine != "true") {
+        if (privateRoutine == "true") {
             privateRoutine = true
         } else {
             privateRoutine = false
@@ -471,7 +471,7 @@ function saveNewRoutine(id) {
         // Bicep
         if (firstMuscleMonday == "Bicep" ) {
             var videoMonday ="https://www.youtube.com/embed/iGYeHsgb4CY"
-        }
+        }   
 
         if(firstMuscleTuesday == "Bicep" ) {
             var videoTuesday ="https://www.youtube.com/embed/iGYeHsgb4CY"  
@@ -588,100 +588,105 @@ function saveNewRoutine(id) {
         }
         // Bicep 2
         if (secondMuscleMonday == "Bicep") {
-            var videoMonday2 ="https://www.youtube.com/embed/iGYeHsgb4CY"
+            var videoMonday2 ="https://www.youtube.com/embed/1FN6ovYpkoM"
         }
         if (secondMuscleTuesday == "Bicep") {
-            var videoTuesday2 ="https://www.youtube.com/embed/iGYeHsgb4CY"
+            var videoTuesday2 ="https://www.youtube.com/embed/1FN6ovYpkoM"
         }
         if (secondMuscleWednesday == "Bicep") {
-            var videoWednesday2 ="https://www.youtube.com/embed/iGYeHsgb4CY"
+            var videoWednesday2 ="https://www.youtube.com/embed/1FN6ovYpkoM"
         }
         if (secondMuscleThursday == "Bicep") {
-            var videoThursday2 ="https://www.youtube.com/embed/iGYeHsgb4CY"
+            var videoThursday2 ="https://www.youtube.com/embed/1FN6ovYpkoM"
         }
         if (secondMuscleFriday == "Bicep") {
-            var videoFriday2 ="https://www.youtube.com/embed/iGYeHsgb4CY"
+            var videoFriday2 ="https://www.youtube.com/embed/1FN6ovYpkoM"
         }
+        
         // Tricep
         if (secondMuscleMonday == "Tricep") {
-            var videoMonday2 = "https://www.youtube.com/embed/Sa2GcjDnkm4"
+            var videoMonday2 = "https://www.youtube.com/embed/SuajkDYlIRw"
         }
         if (secondMuscleTuesday == "Tricep") {
-            var videoTuesday2 = "https://www.youtube.com/embed/Sa2GcjDnkm4"
+            var videoTuesday2 = "https://www.youtube.com/embed/SuajkDYlIRw"
         }
         if (secondMuscleWednesday == "Tricep") {
-            var videoWednesday2 = "https://www.youtube.com/embed/Sa2GcjDnkm4"
+            var videoWednesday2 = "https://www.youtube.com/embed/SuajkDYlIRw"
         }
         if (secondMuscleThursday == "Tricep") {
-            var videoThursday2 = "https://www.youtube.com/embed/Sa2GcjDnkm4"
+            var videoThursday2 = "https://www.youtube.com/embed/SuajkDYlIRw"
         }
         if (secondMuscleFriday == "Tricep") {
-            var videoFriday2 = "https://www.youtube.com/embed/Sa2GcjDnkm4"
+            var videoFriday2 = "https://www.youtube.com/embed/SuajkDYlIRw"
         }
         // Abs
         if (secondMuscleMonday == "Abs") {
-            var videoMonday2 = "https://www.youtube.com/embed/1919eTCoESo"
+            var videoMonday2 = "https://www.youtube.com/embed/krlBcLYtDbk"
         }
         if (secondMuscleTuesday == "Abs") {
-            var videoTuesday2 = "https://www.youtube.com/embed/1919eTCoESo"
+            var videoTuesday2 = "https://www.youtube.com/embed/krlBcLYtDbk"
         }
         if (secondMuscleWednesday == "Abs") {
-            var videoWednesday2 = "https://www.youtube.com/embed/1919eTCoESo"
+            var videoWednesday2 = "https://www.youtube.com/embed/krlBcLYtDbk"
         }
         if (secondMuscleThursday == "Abs") {
-            var videoThursday2 = "https://www.youtube.com/embed/1919eTCoESo"
+            var videoThursday2 = "https://www.youtube.com/embed/krlBcLYtDbk"
         }
         if (secondMuscleFriday == "Abs") {
-            var videoFriday2 = "https://www.youtube.com/embed/1919eTCoESo"
+            var videoFriday2 = "https://www.youtube.com/embed/krlBcLYtDbk"
         }
+
         // Chest
         if (secondMuscleMonday == "Chest") {
-            var videoMonday2 = "https://www.youtube.com/embed/89e518dl4I8"
+            var videoMonday2 = "https://www.youtube.com/embed/pJlE3CHP-Ac"
         }
         if (secondMuscleTuesday == "Chest") {
-            var videoTuesday2 = "https://www.youtube.com/embed/89e518dl4I8"
+            var videoTuesday2 = "https://www.youtube.com/embed/pJlE3CHP-Ac"
         }
         if (secondMuscleWednesday == "Chest") {
-            var videoWednesday2 = "https://www.youtube.com/embed/89e518dl4I8"
+            var videoWednesday2 = "https://www.youtube.com/embed/pJlE3CHP-Ac"
         }
         if (secondMuscleThursday == "Chest") {
-            var videoThursday2 = "https://www.youtube.com/embed/89e518dl4I8"
+            var videoThursday2 = "https://www.youtube.com/embed/pJlE3CHP-Ac"
         }
         if (secondMuscleFriday == "Chest") {
-            var videoFriday2 = "https://www.youtube.com/embed/89e518dl4I8"
+            var videoFriday2 = "https://www.youtube.com/embed/pJlE3CHP-Ac"
         }
+        
         // Back
         if (secondMuscleMonday == "Back") {
-            var videoMonday2 ="https://www.youtube.com/embed/eE7dzM0iexc"
+            var videoMonday2 ="https://www.youtube.com/embed/NoRkALo4AMQ"
         }
         if (secondMuscleTuesday == "Back") {
-            var videoTuesday2 ="https://www.youtube.com/embed/eE7dzM0iexc"
+            var videoTuesday2 ="https://www.youtube.com/embed/NoRkALo4AMQ"
         }
         if (secondMuscleWednesday == "Back") {
-            var videoWednesday2 ="https://www.youtube.com/embed/eE7dzM0iexc"
+            var videoWednesday2 ="https://www.youtube.com/embed/NoRkALo4AMQ"
         }
         if (secondMuscleThursday == "Back") {
-            var videoThursday2 ="https://www.youtube.com/embed/eE7dzM0iexc"            
+            var videoThursday2 ="https://www.youtube.com/embed/NoRkALo4AMQ"            
         }
         if (secondMuscleFriday == "Back") {
-            var videoFriday2 ="https://www.youtube.com/embed/eE7dzM0iexc"
+            var videoFriday2 ="https://www.youtube.com/embed/NoRkALo4AMQ"
         }
+
         // Legs
         if (secondMuscleMonday == "Legs") {
-            var videoMonday2 = "https://www.youtube.com/embed/rOxlw2VMSDw"
+            var videoMonday2 = "https://www.youtube.com/embed/RjexvOAsVtI"
         }
         if (secondMuscleTuesday == "Legs") {
-            var videoTuesday2 = "https://www.youtube.com/embed/rOxlw2VMSDw"
+            var videoTuesday2 = "https://www.youtube.com/embed/RjexvOAsVtI"
         }
         if (secondMuscleWednesday == "Legs") {
-            var videoWednesday2 = "https://www.youtube.com/embed/rOxlw2VMSDw"
+            var videoWednesday2 = "https://www.youtube.com/embed/RjexvOAsVtI"
         }
         if (secondMuscleThursday == "Legs") {
-            var videoThursday2 = "https://www.youtube.com/embed/rOxlw2VMSDw"
+            var videoThursday2 = "https://www.youtube.com/embed/RjexvOAsVtI"
         }
         if (secondMuscleFriday == "Legs") {
-            var videoFriday2 = "https://www.youtube.com/embed/rOxlw2VMSDw"
+            var videoFriday2 = "https://www.youtube.com/embed/RjexvOAsVtI"
         }
+        
         // off
         if (secondMuscleMonday == "off") {
             var videoMonday2 = "null"
@@ -1163,20 +1168,21 @@ function saveModifyRoutine(positionRoutine, id) {
         }
         // Bicep 2
         if (secondMuscleMonday == "Bicep") {
-            var videoMonday2 ="https://www.youtube.com/embed/iGYeHsgb4CY"
+            var videoMonday2 ="https://www.youtube.com/embed/1FN6ovYpkoM"
         }
         if (secondMuscleTuesday == "Bicep") {
-            var videoTuesday2 ="https://www.youtube.com/embed/iGYeHsgb4CY"
+            var videoTuesday2 ="https://www.youtube.com/embed/1FN6ovYpkoM"
         }
         if (secondMuscleWednesday == "Bicep") {
-            var videoWednesday2 ="https://www.youtube.com/embed/iGYeHsgb4CY"
+            var videoWednesday2 ="https://www.youtube.com/embed/1FN6ovYpkoM"
         }
         if (secondMuscleThursday == "Bicep") {
-            var videoThursday2 ="https://www.youtube.com/embed/iGYeHsgb4CY"
+            var videoThursday2 ="https://www.youtube.com/embed/1FN6ovYpkoM"
         }
         if (secondMuscleFriday == "Bicep") {
-            var videoFriday2 ="https://www.youtube.com/embed/iGYeHsgb4CY"
+            var videoFriday2 ="https://www.youtube.com/embed/1FN6ovYpkoM"
         }
+        
         // Tricep
         if (secondMuscleMonday == "Tricep") {
             var videoMonday2 = "https://www.youtube.com/embed/SuajkDYlIRw"
@@ -1193,70 +1199,75 @@ function saveModifyRoutine(positionRoutine, id) {
         if (secondMuscleFriday == "Tricep") {
             var videoFriday2 = "https://www.youtube.com/embed/SuajkDYlIRw"
         }
+
         // Abs
         if (secondMuscleMonday == "Abs") {
-            var videoMonday2 = "https://www.youtube.com/embed/1919eTCoESo"
+            var videoMonday2 = "https://www.youtube.com/embed/krlBcLYtDbk"
         }
         if (secondMuscleTuesday == "Abs") {
-            var videoTuesday2 = "https://www.youtube.com/embed/1919eTCoESo"
+            var videoTuesday2 = "https://www.youtube.com/embed/krlBcLYtDbk"
         }
         if (secondMuscleWednesday == "Abs") {
-            var videoWednesday2 = "https://www.youtube.com/embed/1919eTCoESo"
+            var videoWednesday2 = "https://www.youtube.com/embed/krlBcLYtDbk"
         }
         if (secondMuscleThursday == "Abs") {
-            var videoThursday2 = "https://www.youtube.com/embed/1919eTCoESo"
+            var videoThursday2 = "https://www.youtube.com/embed/krlBcLYtDbk"
         }
         if (secondMuscleFriday == "Abs") {
-            var videoFriday2 = "https://www.youtube.com/embed/1919eTCoESo"
+            var videoFriday2 = "https://www.youtube.com/embed/krlBcLYtDbk"
         }
+
         // Chest
         if (secondMuscleMonday == "Chest") {
-            var videoMonday2 = "https://www.youtube.com/embed/89e518dl4I8"
+            var videoMonday2 = "https://www.youtube.com/embed/pJlE3CHP-Ac"
         }
         if (secondMuscleTuesday == "Chest") {
-            var videoTuesday2 = "https://www.youtube.com/embed/89e518dl4I8"
+            var videoTuesday2 = "https://www.youtube.com/embed/pJlE3CHP-Ac"
         }
         if (secondMuscleWednesday == "Chest") {
-            var videoWednesday2 = "https://www.youtube.com/embed/89e518dl4I8"
+            var videoWednesday2 = "https://www.youtube.com/embed/pJlE3CHP-Ac"
         }
         if (secondMuscleThursday == "Chest") {
-            var videoThursday2 = "https://www.youtube.com/embed/89e518dl4I8"
+            var videoThursday2 = "https://www.youtube.com/embed/pJlE3CHP-Ac"
         }
         if (secondMuscleFriday == "Chest") {
-            var videoFriday2 = "https://www.youtube.com/embed/89e518dl4I8"
+            var videoFriday2 = "https://www.youtube.com/embed/pJlE3CHP-Ac"
         }
+
         // Back
         if (secondMuscleMonday == "Back") {
-            var videoMonday2 ="https://www.youtube.com/embed/eE7dzM0iexc"
+            var videoMonday2 ="https://www.youtube.com/embed/NoRkALo4AMQ"
         }
         if (secondMuscleTuesday == "Back") {
-            var videoTuesday2 ="https://www.youtube.com/embed/eE7dzM0iexc"
+            var videoTuesday2 ="https://www.youtube.com/embed/NoRkALo4AMQ"
         }
         if (secondMuscleWednesday == "Back") {
-            var videoWednesday2 ="https://www.youtube.com/embed/eE7dzM0iexc"
+            var videoWednesday2 ="https://www.youtube.com/embed/NoRkALo4AMQ"
         }
         if (secondMuscleThursday == "Back") {
-            var videoThursday2 ="https://www.youtube.com/embed/eE7dzM0iexc"            
+            var videoThursday2 ="https://www.youtube.com/embed/NoRkALo4AMQ"            
         }
         if (secondMuscleFriday == "Back") {
-            var videoFriday2 ="https://www.youtube.com/embed/eE7dzM0iexc"
+            var videoFriday2 ="https://www.youtube.com/embed/NoRkALo4AMQ"
         }
+
         // Legs
         if (secondMuscleMonday == "Legs") {
-            var videoMonday2 = "https://www.youtube.com/embed/rOxlw2VMSDw"
+            var videoMonday2 = "https://www.youtube.com/embed/RjexvOAsVtI"
         }
         if (secondMuscleTuesday == "Legs") {
-            var videoTuesday2 = "https://www.youtube.com/embed/rOxlw2VMSDw"
+            var videoTuesday2 = "https://www.youtube.com/embed/RjexvOAsVtI"
         }
         if (secondMuscleWednesday == "Legs") {
-            var videoWednesday2 = "https://www.youtube.com/embed/rOxlw2VMSDw"
+            var videoWednesday2 = "https://www.youtube.com/embed/RjexvOAsVtI"
         }
         if (secondMuscleThursday == "Legs") {
-            var videoThursday2 = "https://www.youtube.com/embed/rOxlw2VMSDw"
+            var videoThursday2 = "https://www.youtube.com/embed/RjexvOAsVtI"
         }
         if (secondMuscleFriday == "Legs") {
-            var videoFriday2 = "https://www.youtube.com/embed/rOxlw2VMSDw"
+            var videoFriday2 = "https://www.youtube.com/embed/RjexvOAsVtI"
         }
+
         // off
         if (secondMuscleMonday == "off") {
             var videoMonday2 = "null"
@@ -1373,8 +1384,8 @@ function returnPositionRoutine(i) {
 function exerciseFetchSection(id) {
     console.log(id)
     let actualDate = new Date();
-    // let day = actualDate.getDay();
-    let day = 1
+    let day = actualDate.getDay();
+    // let day = 1
     // section.innerHTML = `${day}`
 
     // Sunday
@@ -1541,6 +1552,188 @@ function exerciseFetchSection(id) {
         .catch( err => {
             console.log(err.message)
         });
+}
+
+function favoritesFetchSection(id) {
+    console.log("Favorites Fetch Section")
+    section.innerHTML = `
+        <div class= 'favoriteClass'>
+    `
+    // console.log(id)
+    let url = `profile/userInfo/${id}`;
+    
+    let settings = {
+        method : 'GET',
+    }
+    fetch( url, settings )
+        .then( response => {
+            if( response.ok ){
+                return response.json();
+            }
+            throw new Error( response.statusText );
+        })
+        .then( responseJSON => {
+            if (responseJSON.favorites.length > 0) {
+                for ( let i = 0; i < responseJSON.favorites.length; i ++ ){
+                    section.innerHTML +=`<label hidden for="" id ="labelForIDFromRoutine${i}">${responseJSON.favorites[i]._id}</label>
+                    <label hidden for="" id ="labelForUserID">${responseJSON._id}</label>
+                                        `
+                    section.innerHTML += ` 
+                                <div class= 'eachRoutineClass'>
+                                    <div class = "daysofexercise"> 
+                                        <section>
+                                            <h3>Monday:<h3>
+                                            <h4>Muscles to train: ${responseJSON.favorites[i].monday.muscle1} and ${responseJSON.favorites[i].monday.muscle2}</h4>
+                                            <h4>Recommended videos:<h4>  `
+                    if(responseJSON.favorites[i].monday.exercise[0] != "null") {
+                        section.innerHTML += ` 
+                                            <iframe width="280" height="210"
+                                                src=${responseJSON.favorites[i].monday.exercise[0]}>
+                                            </iframe>
+                                            `
+                    }
+                    if(responseJSON.favorites[i].monday.exercise[1] != "null") {
+                        section.innerHTML += ` 
+                                            <iframe width="280" height="210"
+                                                src=${responseJSON.favorites[i].monday.exercise[1]}>
+                                            </iframe>
+                                            `
+                    }
+                    section.innerHTML += `                     
+                                        </section>
+                                        <section>
+                                            <h3>Tuesday:<h3>
+                                            <h4>Muscles to train: ${responseJSON.favorites[i].tuesday.muscle1} and ${responseJSON.favorites[i].tuesday.muscle2}</h4>
+                                            <h4>Recommended videos:<h4> 
+                                        `
+                    if(responseJSON.favorites[i].tuesday.exercise[0] != "null") {
+                        section.innerHTML += ` 
+                                            <iframe width="280" height="210"
+                                                src=${responseJSON.favorites[i].tuesday.exercise[0]}>
+                                            </iframe>
+                                            `
+                    }
+                    if(responseJSON.favorites[i].tuesday.exercise[1] != "null") {
+                        section.innerHTML += ` 
+                                            <iframe width="280" height="210"
+                                                src=${responseJSON.favorites[i].tuesday.exercise[1]}>
+                                            </iframe>
+                                            `
+                    }
+                    section.innerHTML += ` 
+                                        </section>
+                                        <section>
+                                            <h3>Wednesday:<h3>
+                                            <h4>Muscles to train: ${responseJSON.favorites[i].wednesday.muscle1} and ${responseJSON.favorites[i].wednesday.muscle2}</h4>
+                                            <h4>Recommended videos:<h4>
+                                            `
+                    if(responseJSON.favorites[i].wednesday.exercise[0] != "null") {
+                        section.innerHTML += ` 
+                                            <iframe width="280" height="210"
+                                                src=${responseJSON.favorites[i].wednesday.exercise[0]}>
+                                            </iframe>
+                                            `
+                    }
+                    if(responseJSON.favorites[i].wednesday.exercise[1] != "null") {
+                        section.innerHTML += ` 
+                                            <iframe width="280" height="210"
+                                                src=${responseJSON.favorites[i].wednesday.exercise[1]}>
+                                            </iframe>
+                                            `
+                    }
+                    section.innerHTML += `                       
+                                        </section>
+                                        <section>
+                                            <h3>Thursday:<h3>
+                                            <h4>Muscles to train: ${responseJSON.favorites[i].thursday.muscle1} and ${responseJSON.favorites[i].thursday.muscle2}</h4>
+                                            <h4>Recommended videos:<h4>
+                                            `
+                    if(responseJSON.favorites[i].thursday.exercise[0] != "null") {
+                        section.innerHTML += ` 
+                                            <iframe width="280" height="210"
+                                                src=${responseJSON.favorites[i].thursday.exercise[0]}>
+                                            </iframe>
+                                            `
+                    }
+                    if(responseJSON.favorites[i].thursday.exercise[1] != "null") {
+                        section.innerHTML += ` 
+                                            <iframe width="280" height="210"
+                                                src=${responseJSON.favorites[i].thursday.exercise[1]}>
+                                            </iframe>
+                                            `
+                    }
+                    section.innerHTML += `         
+                                        </section>
+                                        <section>
+                                            <h3>Friday:<h3>
+                                            <h4>Muscles to train: ${responseJSON.favorites[i].friday.muscle1} and ${responseJSON.favorites[i].friday.muscle2}</h4>
+                                            <h4>Recommended videos:<h4>
+                                            `
+                    if(responseJSON.favorites[i].friday.exercise[0] != "null") {
+                        section.innerHTML += ` 
+                                            <iframe width="280" height="210"
+                                                src=${responseJSON.favorites[i].friday.exercise[0]}>
+                                            </iframe>
+                                            `
+                    }
+                    if(responseJSON.favorites[i].friday.exercise[1] != "null") {
+                        section.innerHTML += ` 
+                                            <iframe width="280" height="210"
+                                                src=${responseJSON.favorites[i].friday.exercise[1]}>
+                                            </iframe>
+                                            `
+                    }
+                    section.innerHTML += `                  
+                                    </div>
+                                    <button onclick=eraseFavorite(${i})>Erase routine</button>
+                                </div> 
+                    `
+                }
+            } else {
+                section.innerHTML += `
+                <p>You dont have favorites, please add one.<p>
+                `
+            }
+            
+        })
+        .catch( err => {
+            console.log(err.message)
+        });
+
+    
+    section.innerHTML +=`</div> `
+}
+
+
+function eraseFavorite(positionForFavoriteID) {
+    // console.log(positionForFavoriteID)
+    let userID = document.getElementById('labelForUserID').innerHTML
+    let userFavoriteID = document.getElementById(`labelForIDFromRoutine${positionForFavoriteID}`).innerHTML
+    console.log(userID)
+    console.log(userFavoriteID)
+
+    let url = `profile/userDeleteFavorite/${userID}`;
+    let settings = {
+        method: 'DELETE',
+        headers: {
+            position: positionForFavoriteID,
+            idRoutine: userFavoriteID
+        }
+    }
+    fetch(url, settings)
+        .then(response => {
+            //routinesFetchSection(id)
+            exerciseFetchSection(userID)
+            return response.json();
+            
+        })
+        .then(resultJSON => {
+            routinesFetchSection(id)
+            console.log(resultJSON)
+        })
+        .catch(err => {
+            console.log(err)
+        })
 }
 
 function userLogOut() {

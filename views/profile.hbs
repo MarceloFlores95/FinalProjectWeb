@@ -5,6 +5,10 @@
 <p>Welcome {{name}} to your {{title}}</p>
 <p>You id is {{id}}</p>
 
+<div>
+    <a class="able"href="/allusers">See other users!</a>
+</div>
+
 <div id = "profileMenu">
     <section id= "menu" class="vertical-menu">
         <a href="javascript:void(0);" onclick="profileFetchSection(`{{id}}`) ">Profile</a>
@@ -12,6 +16,7 @@
         <a href="javascript:void(0);" onclick="routinesFetchSection(`{{id}}`)">Routines</a>
         <a href="javascript:void(0);" onclick="exerciseFetchSection(`{{id}}`)">Exercise</a>
         <a href="javascript:void(0);" onclick="goalFetchSection(`{{id}}`)">Goal</a>
+        <a href="javascript:void(0);" onclick="favoritesFetchSection(`{{id}}`)">Favorites</a>
         <a href="javascript:void(0);" onclick="userLogOut()">Log Out</a>
     </section>
 
