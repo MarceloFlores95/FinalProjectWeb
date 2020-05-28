@@ -10,7 +10,7 @@ var session = require('express-session')
 var passport = require('passport')
 var flash = require('connect-flash')
 var validator = require('express-validator')
-
+const { DATABASE_URL, PORT} = require( './config/config' );
 
 var indexRouter = require('./routes/index');
 var loginRouter = require('./routes/login');
@@ -74,7 +74,7 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-app.listen(8080, () => {
+app.listen(PORT, () => {
   console.log("This server is running on port 8080")
 
   new Promise((resolve, reject) => {
@@ -83,7 +83,7 @@ app.listen(8080, () => {
         useUnifiedTopology: true,
         useCreateIndex: true
     };
-    mongoose.connect('mongodb://localhost/fitnessAppUsersdbs', settings,(err) => {
+    mongoose.connect(DATABASE_URL, settings,(err) => {
         if(err) {
             return reject(err);
         }
