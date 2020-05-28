@@ -1,139 +1,137 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap');
 @import url('https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
 
-body  {
-  margin: 0;
-  padding: 0;
+body{
+	margin:0;
+	padding:0;
+	overflow-x: hidden;
 }
 
 *{
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Oswald', sans-serif;
+	box-sizing: border-box;
+	margin:0;
+	padding:0;
+	font-family: 'Oswald', sans-serif;
 }
- /* Header section */
+
+/*Header*/
+
 header{
-  position:fixed;
+	position:fixed;
 	left: 0px;
-	top:  0px;
+	top:0px;
 	width: 100%;
 	z-index: 10;
-	padding: 0px;
+	background-color: #000000;
+	padding:15px 15px;
+}
+header .container{
+	-webkit-display: flex;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
-header .container {
-  -webkit-display: flex;
-  display: flex;
-  justify-content: space-between;
+header .logo a{
+	font-size: 30px;
+	text-decoration: none;
+	color:#ffffff;
+	font-weight: 700;
+}
+header .logo a span{
+	color:#c11325;
 }
 
-header .logo a  {
-  font-size: 30px;
-  text-decoration: none;
-  color: #ffffff;
-  font-weight: 700;
+.container{
+	max-width: 1170px;
+	margin: auto;
 }
 
-header .logo a span {
-  color: #c11325;
+/*Home section*/
+.home{
+	height: 100vh;
+	background-image: url('../images/home.jpg');
+	background-size: cover;
+	padding:15px;
+	-webkit-display: flex;
+	display: flex;
+	position: relative;
 }
-
-.container  {
-  max-width: 1170px;
-  margin: auto;
-}
-
-/* Home section */
-.home {
-  height: 100vh;
-  background-image: url('../images/home.jpg');
-  background-size: cover;
-  padding: 15px;
-  -webkit-display: flex;
-  display: flex;
-  position: relative;
-}
-
-.home .go-down  {
+.home .go-down{
   position: absolute;
   bottom: 50px;
   width: 26px;
-  height: 40px;
-  border: 1px solid #ffffff;
+  height:40px;
+  border:1px solid #ffffff;
   display: block;
-  border-radius: 4px;
+  border-radius:4px;
   text-align: center;
-  left: 50%;
+  left:50%;
   margin-left: -13px;
 }
-
-.home .go-down .fa  {
-  color: #ffffff;
-  -webkit-animation: goDown 1s ease infinite;
-  animation: goDown 1s ease infinite;
+.home .go-down .fa{
+	color:#ffffff;
+	-webkit-animation: goDown 1s ease infinite;
+	animation: goDown 1s ease infinite;
 }
-
-@keyframes goDown{
-  0%{transform: translateY(0px);opacity: 0;}
-  100%{transform: translateY(10px);}
-}
-
 @-webkit-keyframes goDown{
-  0%{transform: translateY(0px);opacity: 0;}
-  100%{transform: translateY(10px);}
+	0%{transform: translateY(0);opacity:.5}
+	100%{transform: translateY(10px);}
 }
-
-.home .container {
+@keyframes goDown{
+	0%{transform: translateY(0);opacity:.5}
+	100%{transform: translateY(10px);}
+}
+.home .container{
   -webkit-display: flex;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  
 }
 
 .home h1{
-  color: #ffffff;
-  font-size: 60px;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin: 0;
+	color:#ffffff;
+	font-size: 60px;
+	font-weight: 700;
+	text-transform: uppercase;
+	margin:0;
 }
 
 .home h1 span{
-   color: #c11325;
+	color:#c11325;;
 }
- 
-/* Down Section */
-.down{
+
+/*About section*/
+
+.about{
 	padding:80px 0px;
 	background-color:#ffffff;
 }
 
-.down .content{ 
+.about .content{ 
  -webkit-display: flex;
  display: flex;
 }
-.down .content .box{
+.about .content .box{
 	flex:0 0 33.33%;
 	max-width: 33.33%;
 	padding:15px;
 }
-.down .content .box .inner{
+.about .content .box .inner{
 	background-color:#222222;
 }
-.down .content .box:nth-child(2) .inner{
+.about .content .box:nth-child(2) .inner{
 	background-color: #c11325;
 }
-.down .content .box .inner .img img{
+.about .content .box .inner .img img{
 	width: 100%;
 }
-.down .content .box .inner .text{
+.about .content .box .inner .text{
 	padding:30px;
 }
 
-.down .content .box .inner .text h4{
+.about .content .box .inner .text h4{
   font-size: 20px;
   margin:0;
   padding: 0px 0px 15px;
@@ -142,7 +140,7 @@ header .logo a span {
  text-transform: capitalize;
   text-align: center;
 }
-.down .content .box .inner .text p{
+.about .content .box .inner .text p{
 	font-size: 15px;
 	line-height:20px;
 	color:#ffffff;
@@ -150,6 +148,8 @@ header .logo a span {
 	margin:0;
 	font-family: 'Open Sans', sans-serif;
 }
+
+
 
 /*Start Today Section*/
 .start-today{
@@ -214,6 +214,19 @@ header .logo a span {
    .home{
    	background-position: center;
    }
+  .classes .content{
+  	flex-wrap: wrap;
+  }
+ .classes .content .box {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+.classes .content .img{
+	display: none;
+}
+.start-today .content .box{
+	padding:15px;
+}
 }
 
 /*if screen width is less than or equal to 767px then*/
@@ -221,13 +234,22 @@ header .logo a span {
   .home h1{
       font-size: 40px;
   }
-  .down .content{
+  .about .content{
   	 flex-wrap: wrap;
   }
-  .down .content .box {
+  .about .content .box {
     flex: 0 0 100%;
     max-width: 100%;
-  }
+}
+
+.classes .content .class-items .item{
+	flex-wrap: wrap;
+}
+.classes .content .class-items .item .item-text, 
+.classes .content .class-items .item .item-img {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
 }
 
 /*if screen width is less than or equal to 550px then*/
@@ -236,3 +258,5 @@ header .logo a span {
       font-size: 30px;
   }
 }
+
+

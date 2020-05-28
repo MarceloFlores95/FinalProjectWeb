@@ -1,6 +1,8 @@
 <link rel='stylesheet' href='/stylesheets/nutrition.css' />
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<section class="nutrition" id="nutrition">
+ <!-- Start nutrition -->
+ <section class="nutrition" id="nutrition">
  	<div class="container">
  		 <div class="content">
  		 	  <div class="text box wow slideInLeft">
@@ -8,61 +10,58 @@
                   <p>Nutrition is the concept that refers to the process by which the body assimilates nutrients 
                     from food through a series of spontaneous phenomena, 
                     such as digestion, the absorption of nutrients into the blood through t
-                    he digestive tract and the assimilation of the same by the cells of the organism. And that is why, thanks to these phenomena carried out by nutrition, the necessary energy is taken to be able to carry out the rest of the vital functions, in addition to carrying out daily activities.</p>
+                    he digestive tract and the assimilation of the same by the cells of the organism. And that is why,
+										 thanks to these phenomena carried out by nutrition, the necessary energy is taken to be able to carry out the rest of the vital functions, 
+										 in addition to carrying out daily activities.</p>
                   <a href="" class="btn">Start Now</a>
  		 	  </div>
  		 	  <div class="accordian box wow slideInRight">
  		 	  	    <div class="accordian-container active">
  		 	  	    	<div class="head">
- 		 	  	    		<h4>How to maintain healthy nutrition</h4>
+ 		 	  	    		<h4>Cardiovascular Equipment</h4>
  		 	  	    		<span class="fa fa-angle-down"></span>
  		 	  	    	</div>
  		 	  	    	<div class="body">
- 		 	  	    		<p></p>
+ 		 	  	    		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
  		 	  	    	</div>
  		 	  	    </div>
  		 	  	    <div class="accordian-container">
  		 	  	    	<div class="head">
- 		 	  	    		<h4>Why pay attention to nutrition</h4>
+ 		 	  	    		<h4>Strength Training Equipment</h4>
  		 	  	    		<span class="fa fa-angle-up"></span>
  		 	  	    	</div>
  		 	  	    	<div class="body">
- 		 	  	    		<p></p>
+ 		 	  	    		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
  		 	  	    	</div>
  		 	  	    </div>
  		 	  	    <div class="accordian-container">
  		 	  	    	<div class="head">
- 		 	  	    		<h4>characteristics of the Mediterranean diet</h4>
+ 		 	  	    		<h4>Group Fitness Class</h4>
  		 	  	    		<span class="fa fa-angle-up"></span>
  		 	  	    	</div>
  		 	  	    	<div class="body">
- 		 	  	    		<p></p>
+ 		 	  	    		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
  		 	  	    	</div>
  		 	  	    </div>
  		 	  	    <div class="accordian-container">
  		 	  	    	<div class="head">
- 		 	  	    		<h4>The Mediterranean diet as an economic engine in the region</h4>
+ 		 	  	    		<h4>Other nutritions</h4>
  		 	  	    		<span class="fa fa-angle-up"></span>
  		 	  	    	</div>
  		 	  	    	<div class="body">
- 		 	  	    		<p></p>
+ 		 	  	    		<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries</p>
  		 	  	    	</div>
  		 	  	    </div>
  		 	  </div>
  		 </div>
  	</div>
  </section>
+ <!-- End nutrition -->
 
+ <!-- jquery -->
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
-	$(document).ready(function(){
-
-      $(".ham-burger, .nav ul li a").click(function(){
-       
-        $(".nav").toggleClass("open")
-
-        $(".ham-burger").toggleClass("active");
-      })      
+	$(document).ready(function(){    
       $(".accordian-container").click(function(){
       	$(".accordian-container").children(".body").slideUp();
       	$(".accordian-container").removeClass("active")
@@ -71,23 +70,5 @@
       	$(this).addClass("active")
       	$(this).children(".head").children("span").removeClass("fa-angle-up").addClass("fa-angle-down")
       })
-
-       $(".nav ul li a, .go-down").click(function(event){
-         if(this.hash !== ""){
-
-              event.preventDefault();
-
-              var hash=this.hash; 
-
-              $('html,body').animate({
-                scrollTop:$(hash).offset().top
-              },800 , function(){
-                 window.location.hash=hash;
-              });
-
-              // add active class in navigation
-              $(".nav ul li a").removeClass("active")
-              $(this).addClass("active")
-         }
-      })
 })
+</script>
