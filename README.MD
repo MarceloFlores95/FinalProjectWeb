@@ -39,7 +39,7 @@
 <pre>
     <code>
         router.get('/deleteUser/:id',isLoggedIn,(req,res,next) => {})
-    <code>
+    </code>
 <pre>
 
 <p>To update all the information from the user we need this endpoint.</p>
