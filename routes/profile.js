@@ -127,6 +127,7 @@ router.patch('/userModifyRoutine/:id',[jsonParser,isLoggedIn], (req,res,next) =>
   let userID = req.params.id
   let positionRoutine = req.body[0]
   let userNewRoutine = req.body[1]
+  
   Users
     .updateRoutine(userID,positionRoutine,userNewRoutine)
       .then(result => {
@@ -136,7 +137,48 @@ router.patch('/userModifyRoutine/:id',[jsonParser,isLoggedIn], (req,res,next) =>
       .catch(err => {
         return err
       })
-      
+
+})
+
+router.delete('/userDeleteRoutine/:id', isLoggedIn, (req,res,next) => { 
+  let userID = req.params.id
+  let positionRoutine = req.headers.position
+  let idRoutine = req.headers.idroutine
+  //console.log("Delete")
+  //console.log(userID)
+  //console.log(positionRoutine)
+  //console.log(idRoutine)
+  
+  Users
+    .deleteRoutine(userID,positionRoutine,idRoutine)
+      .then(result => {
+        console.log(result)
+        return res.status(404).json(result)
+      })
+      .catch(err => {
+        return err
+      })
+  
+}),
+router.delete('/userDeleteFavorite/:id', isLoggedIn, (req,res,next) => { 
+  let userID = req.params.id
+  let positionRoutine = req.headers.position
+  let idRoutine = req.headers.idroutine
+  //console.log("Delete")
+  //console.log(userID)
+  //console.log(positionRoutine)
+  //console.log(idRoutine)
+  
+  Users
+    .deleteFavoriteRoutine(userID,positionRoutine,idRoutine)
+      .then(result => {
+        console.log(result)
+        return res.status(404).json(result)
+      })
+      .catch(err => {
+        return err
+      })
+  
 })
 
 router.get('/logout',isLoggedIn, (req,res, next) => {

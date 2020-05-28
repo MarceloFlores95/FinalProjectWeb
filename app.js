@@ -18,6 +18,7 @@ var profileRouter = require('./routes/profile');
 var aboutUsRouter = require('./routes/aboutUs');
 var nutritionRouter = require('./routes/nutrition');
 var lifeStyleRouter = require('./routes/lifeStyle');
+var allusersRouter = require('./routes/allusers');
 
 
 var app = express();
@@ -51,6 +52,7 @@ app.use('/nutrition', nutritionRouter)
 app.use('/life-style', lifeStyleRouter)
 app.use('/login', loginRouter);
 app.use('/profile', profileRouter);
+app.use('/allusers',allusersRouter);
 app.use('/', indexRouter);
 
 
