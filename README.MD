@@ -183,7 +183,7 @@
     }
     </code>
 </pre>
-<h4>Nutrition:<h4>
+<h4>Nutrition:</h4>
 <p>Load all the information of the nutrition section.</p>
 <p>Dont need to validate login</p>
 <pre>
@@ -194,7 +194,7 @@
 
 <p>http://localhost:8080/nutrition</p>
 
-<h4>Login:<h4>
+<h4>Login:</h4>
 
 <p>Load all the information of the login section.</p>
 <pre>
@@ -252,7 +252,7 @@
 </pre>
 
 
-<h4>LifeStyle:<h4>
+<h4>LifeStyle:</h4>
 <p>Load all the information of the life style section.</p>
 <p>Dont need to validate login</p>
 <pre>
@@ -263,7 +263,7 @@
 
 <p>http://localhost:8080/life-style</p>
 
-<h4>Home:<h4>
+<h4>Home:</h4>
 <p>Load all the information of the home section.</p>
 <p>Dont need to validate login</p>
 <pre>
@@ -273,8 +273,8 @@
 </pre>
 <p>http://localhost:8080/</p>
 
-<h4>AllUsers:<h4>
-<h4>All Users:<h4>
+<h4>AllUsers:</h4>
+<h4>All Users:</h4>
 <p>Load all the information of all users in a new section.</p>
 <p>Need to validate login</p>
 <pre>
