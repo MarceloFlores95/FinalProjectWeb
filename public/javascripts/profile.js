@@ -1415,136 +1415,142 @@ function exerciseFetchSection(id) {
             console.log(responseJSON)
             if(day == 1) {
                 for ( let i = 0; i < responseJSON.routines.length; i ++ ){
-                    if(responseJSON.routines[i].monday.muscle1 == "null" || responseJSON.routines[i].monday.muscle2 == "null" ) {
+                    if(responseJSON.routines[i].monday.muscle1 == "off" || responseJSON.routines[i].monday.muscle2 == "off" ) {
                         section.innerHTML = "You have a break day!"
-                    }
-                    section.innerHTML = `
-                    <div class="day">
-                        <p>Today is Monday, you choose this muscles to train </p>
-                        <label for="">Name:${responseJSON.routines[i].monday.muscle1}</label>
-                        <br>
-                        <iframe width="280" height="210"
-                            src=${responseJSON.routines[i].monday.exercise[0]}>
-                        </iframe>
-                        <br>
-                        <label for="">Name:${responseJSON.routines[i].monday.muscle2}</label>
-                        <br>
-                        <iframe width="280" height="210"
-                            src=${responseJSON.routines[i].monday.exercise[1]}>
-                        </iframe>
-                    </div>
-                    <div class="buttonInfo">
-                        <button id="modalUserInfo" onclick="editExercise()" >Modify Exercise</button>
-                    </div>
-                    `
+                    } else {
+                        section.innerHTML = `
+                            <div class="day">
+                                <p>Today is Monday, you choose this muscles to train </p>
+                                <label for="">Name:${responseJSON.routines[i].monday.muscle1}</label>
+                                <br>
+                                <iframe width="280" height="210"
+                                    src=${responseJSON.routines[i].monday.exercise[0]}>
+                                </iframe>
+                                <br>
+                                <label for="">Name:${responseJSON.routines[i].monday.muscle2}</label>
+                                <br>
+                                <iframe width="280" height="210"
+                                    src=${responseJSON.routines[i].monday.exercise[1]}>
+                                </iframe>
+                            </div>
+                            <div class="buttonInfo">
+                                <button id="modalUserInfo" onclick="editExercise()" >Modify Exercise</button>
+                            </div>
+                            `
+                    }  
                 }
             }
             // Tuesday
             if(day == 2) {
                 for ( let i = 0; i < responseJSON.routines.length; i ++ ){
-                    if(responseJSON.routines[i].tuesday.muscle1 == "null" || responseJSON.routines[i].tuesday.muscle2 == "null") {
+                    if(responseJSON.routines[i].tuesday.muscle1 == "off" || responseJSON.routines[i].tuesday.muscle2 == "off") {
                         section.innerHTML = "You have a break day!"
+                    } else {
+                        section.innerHTML = `
+                        <div class="day">
+                            <p>Today is Tuesday, you choose this muscles to train </p>
+                            <label for="">Name:${responseJSON.routines[i].tuesday.muscle1}</label>
+                            <br>
+                            <iframe width="280" height="210"
+                                src=${responseJSON.routines[i].tuesday.exercise[0]}>
+                            </iframe>
+                            <br>
+                            <label for="">Name:${responseJSON.routines[i].tuesday.muscle2}</label>
+                            <br>
+                            <iframe width="280" height="210"
+                                src=${responseJSON.routines[i].tuesday.exercise[1]}>
+                            </iframe>
+                        </div>
+                        <div class="buttonInfo">
+                            <button id="modalUserInfo" onclick="editExercise()" >Modify Exercise</button>
+                        </div>
+                        `
                     }
-                    section.innerHTML = `
-                    <div class="day">
-                        <p>Today is Tuesday, you choose this muscles to train </p>
-                        <label for="">Name:${responseJSON.routines[i].tuesday.muscle1}</label>
-                        <br>
-                        <iframe width="280" height="210"
-                            src=${responseJSON.routines[i].tuesday.exercise[0]}>
-                        </iframe>
-                        <br>
-                        <label for="">Name:${responseJSON.routines[i].tuesday.muscle2}</label>
-                        <br>
-                        <iframe width="280" height="210"
-                            src=${responseJSON.routines[i].tuesday.exercise[1]}>
-                        </iframe>
-                    </div>
-                    <div class="buttonInfo">
-                        <button id="modalUserInfo" onclick="editExercise()" >Modify Exercise</button>
-                    </div>
-                    `
                 }
             }
             // Wednesday
             if(day == 3) {
                 for ( let i = 0; i < responseJSON.routines.length; i ++ ){
-                    if(responseJSON.routines[i].wednesday.muscle1 == "null" || responseJSON.routines[i].wednesday.muscle2 == "null") {
+                    if(responseJSON.routines[i].wednesday.muscle1 == "off" || responseJSON.routines[i].wednesday.muscle2 == "off") {
                         section.innerHTML = "You have a break day!"
-                    }
-                    section.innerHTML = `
-                    <div class="day">
-                        <p>Today is Wednesday, you choose this muscles to train </p>
-                        <label for="">Name:${responseJSON.routines[i].wednesday.muscle1}</label>
-                        <br>
-                        <iframe width="280" height="210"
-                            src=${responseJSON.routines[i].wednesday.exercise[0]}>
-                        </iframe>
-                        <br>
-                        <label for="">Name:${responseJSON.routines[i].wednesday.muscle2}</label>
-                        <br>
-                        <iframe width="280" height="210"
-                            src=${responseJSON.routines[i].wednesday.exercise[1]}>
-                        </iframe>
-                    </div>
-                    <div class="buttonInfo">
-                        <button id="modalUserInfo" onclick="editExercise()" >Modify Exercise</button>
-                    </div>
-                    `
+                    } else {
+                        section.innerHTML = `
+                        <div class="day">
+                            <p>Today is Wednesday, you choose this muscles to train </p>
+                            <label for="">Name:${responseJSON.routines[i].wednesday.muscle1}</label>
+                            <br>
+                            <iframe width="280" height="210"
+                                src=${responseJSON.routines[i].wednesday.exercise[0]}>
+                            </iframe>
+                            <br>
+                            <label for="">Name:${responseJSON.routines[i].wednesday.muscle2}</label>
+                            <br>
+                            <iframe width="280" height="210"
+                                src=${responseJSON.routines[i].wednesday.exercise[1]}>
+                            </iframe>
+                        </div>
+                        <div class="buttonInfo">
+                            <button id="modalUserInfo" onclick="editExercise()" >Modify Exercise</button>
+                        </div>
+                        `
+                    }  
                 }
             }
             // Thursday
             if(day == 4) {
                 for ( let i = 0; i < responseJSON.routines.length; i ++ ){
-                    if(responseJSON.routines[i].thursday.muscle1 == "null" || responseJSON.routines[i].thursday.muscle2 == "null") {
+                    if(responseJSON.routines[i].thursday.muscle1 == "off" || responseJSON.routines[i].thursday.muscle2 == "off") {
                         section.innerHTML = "You have a break day!"
+                    } else {
+                        section.innerHTML = `
+                        <div class="day">
+                            <p>Today is Thursday, you choose this muscles to train </p>
+                            <label for="">Name:${responseJSON.routines[i].thursday.muscle1}</label>
+                            <br>
+                            <iframe width="280" height="210"
+                                src=${responseJSON.routines[i].thursday.exercise[0]}>
+                            </iframe>
+                            <br>
+                            <label for="">Name:${responseJSON.routines[i].thursday.muscle2}</label>
+                            <br>
+                            <iframe width="280" height="210"
+                                src=${responseJSON.routines[i].thursday.exercise[1]}>
+                            </iframe>
+                        </div>
+                        <div class="buttonInfo">
+                            <button id="modalUserInfo" onclick="editExercise()" >Modify Exercise</button>
+                        </div>
+                        `
                     }
-                    section.innerHTML = `
-                    <div class="day">
-                        <p>Today is Thursday, you choose this muscles to train </p>
-                        <label for="">Name:${responseJSON.routines[i].thursday.muscle1}</label>
-                        <br>
-                        <iframe width="280" height="210"
-                            src=${responseJSON.routines[i].thursday.exercise[0]}>
-                        </iframe>
-                        <br>
-                        <label for="">Name:${responseJSON.routines[i].thursday.muscle2}</label>
-                        <br>
-                        <iframe width="280" height="210"
-                            src=${responseJSON.routines[i].thursday.exercise[1]}>
-                        </iframe>
-                    </div>
-                    <div class="buttonInfo">
-                        <button id="modalUserInfo" onclick="editExercise()" >Modify Exercise</button>
-                    </div>
-                    `
+                   
                 }
             }
             // Friday
             if(day == 5) {
                 for ( let i = 0; i < responseJSON.routines.length; i ++ ){
-                    if(responseJSON.routines[i].friday.muscle1 == "null" || responseJSON.routines[i].friday.muscle2 == "null") {
+                    if(responseJSON.routines[i].friday.muscle1 == "off" || responseJSON.routines[i].friday.muscle2 == "off") {
                         section.innerHTML = "You have a break day!"
+                    } else {
+                        section.innerHTML = `
+                        <div class="day">
+                            <p>Today is Friday, you choose this muscles to train </p>
+                            <label for="">Name:${responseJSON.routines[i].friday.muscle1}</label>
+                            <br>
+                            <iframe width="280" height="210"
+                                src=${responseJSON.routines[i].friday.exercise[0]}>
+                            </iframe>
+                            <br>
+                            <label for="">Name:${responseJSON.routines[i].friday.muscle2}</label>
+                            <br>
+                            <iframe width="280" height="210"
+                                src=${responseJSON.routines[i].friday.exercise[1]}>
+                            </iframe>
+                        </div>
+                        <div class="buttonInfo">
+                            <button id="modalUserInfo" onclick="editExercise()" >Modify Exercise</button>
+                        </div>
+                        `
                     }
-                    section.innerHTML = `
-                    <div class="day">
-                        <p>Today is Friday, you choose this muscles to train </p>
-                        <label for="">Name:${responseJSON.routines[i].friday.muscle1}</label>
-                        <br>
-                        <iframe width="280" height="210"
-                            src=${responseJSON.routines[i].friday.exercise[0]}>
-                        </iframe>
-                        <br>
-                        <label for="">Name:${responseJSON.routines[i].friday.muscle2}</label>
-                        <br>
-                        <iframe width="280" height="210"
-                            src=${responseJSON.routines[i].friday.exercise[1]}>
-                        </iframe>
-                    </div>
-                    <div class="buttonInfo">
-                        <button id="modalUserInfo" onclick="editExercise()" >Modify Exercise</button>
-                    </div>
-                    `
                 }
             }
 

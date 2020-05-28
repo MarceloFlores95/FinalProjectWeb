@@ -25,6 +25,7 @@ function allUsersFetchSection() {
             
             for ( let i = 0; i < responseJSON.length; i ++ ){
                 // section.innerHTML += `${responseJSON[i].name}`
+                cont = 0
                 if(responseJSON[i]._id != userID) {
                     routine.push(responseJSON[i])
                     section.innerHTML += `
@@ -127,13 +128,17 @@ function allUsersFetchSection() {
                             }
                             
                             // console.log(JSON.stringify(responseJSON[i].routines[j]))
-                            
                             section.innerHTML +=`
                                         </div>
                                         <button onclick="addFavorite('${responseJSON[i]._id}','${responseJSON[i].routines[j]._id}')"> Add to favorites </button>
                                         <hr>
 
                                         `
+                        } else {
+                            cont = cont + 1;
+                            if (responseJSON[i].routines.length == cont) {
+                                section.innerHTML +=`The user has 0 routines to share.`
+                            }
                         }
                     }                   
                 }
