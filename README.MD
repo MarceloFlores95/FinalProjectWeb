@@ -40,7 +40,7 @@
     <code>
         router.get('/deleteUser/:id',isLoggedIn,(req,res,next) => {})
     </code>
-<pre>
+</pre>
 
 <p>To update all the information from the user we need this endpoint.</p>
 <p>We need the function isLoogedIn for validate that the user is loggin</p>
@@ -50,7 +50,7 @@
     <code>
         router.patch('/userPatch/:id', isLoggedIn, (req,res,next) => {})
     </code>
-<pre>
+</pre>
 
 
 <p>To add a new routine to the user we need this endpoint.</p>
