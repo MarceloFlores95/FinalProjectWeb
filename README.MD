@@ -12,205 +12,277 @@
 <hr>
 <h3>Endpoints: </h3>
 <h4>Profile:<h4>
-<p>To get all the informaion for the profile page we need this endpoint.</p>
+<p>To get all the information for the profile page we need this endpoint.</p>
 <p>We need the function isLoogedIn for validate that the user is loggin</p>
-<p>
-router.get('/', isLoggedIn,function(req, res, next) {
-  res.render('profile', { 
-    title: 'Profile',
-    name: req.user.name,
-    id: req.user.id,
-    age: req.user.age,
-    actual_weight: req.user.actual_weight,
-    initial_weight: req.user.initial_weight,
-    height: req.user.height,
-    goal: req.user.goal,
-    routines: req.user.routines
-  });
-});
-</p>
+<p>res.render will load all the information in the web page</p>
+<pre>
+    <code>
+        router.get('/', isLoggedIn,function(req, res, next) {});
+    </code>
+</pre>
+<p>Example:<p>
+<p>http://localhost:8080/profile<p>
 
-<p>
-router.get('/userInfo/:id',isLoggedIn ,(req,res,next) => {
-  let userID = req.params.id
-  Users
-  .getUserById(userID)
-  .then(result => {
-      console.log(result)
-      return res.status(200).json(result);
-  })
-  .catch(err =>{
-      res.statusMessage = "Something is wrong with the Database. Try again later."
-      return res.status(500).end();
-  })
-})
-</p>
+<p>To get all the information from the user we need this endpoint.</p>
+<p>We need the function isLoogedIn for validate that the user is loggin</p>
+<p>The route need the id of the user as parameter</p>
+<p>The information will load in the profile section</p>
+<pre>
+    <code>
+        router.get('/userInfo/:id',isLoggedIn ,(req,res,next) => {})
+    </code>
+</pre>
 
-<p>
-router.get('/deleteUser/:id',isLoggedIn,(req,res,next) => {
-  let userID = req.params.id
-  console.log("Delete")
-  console.log(userID)
+<p>To delete the user.</p>
+<p>We need the function isLoogedIn for validate that the user is loggin</p>
+<p>The route need the id of the user as parameter</p>
+<pre>
+    <code>
+        router.get('/deleteUser/:id',isLoggedIn,(req,res,next) => {})
+    <code>
+<pre>
 
-  Users
-    .deleteUser(userID)
-    .then(result => {
-      res.redirect('/')
-      return res.status(200).json(result);
-    })
-    .catch(err => {
-      return res.status(500).end();
-    })
-})
-</p>
-<p>
-router.patch('/userPatch/:id', isLoggedIn, (req,res,next) => {
-  let userID = req.params.id
-  
-  let userUpdate = {}
-  if (req.params.id) {
-    userUpdate['id'] = req.params.id
-  }
-  if (req.headers.name) {
-    userUpdate['name'] = req.headers.name
-  }
-  if (req.headers.age) {
-    userUpdate['age'] = req.headers.age
-  }
-  if (req.headers.height) {
-    userUpdate['height'] = req.headers.height
-  }
-  if (req.headers.actual_weight) {
-    userUpdate['actual_weight'] = req.headers.actual_weight
-  }
-  if (req.headers.initial_weight) {
-    userUpdate['initial_weight'] = req.headers.initial_weight
-  }
-  if (req.headers.goal) {
-    userUpdate['goal'] = req.headers.goal
-  }
-  // console.log(userUpdate)
-  Users
-    .updateUser(userUpdate)
-        .then(result => {
-            return res.status(202).json(result); 
-        })
-        .catch(err => {
-            return err
-        })
-      
-})
-</p>
-<p>
-router.post('/userPushRoutine/:id',[jsonParser,isLoggedIn],(req,res,next) => {
-    let userID = req.params.id
-    // console.log()
-    let userRoutine = req.body
-    // console.log(userID,userRoutine)
-    Users
-      .addRoutineUser(userID,userRoutine)
-          .then(result => {
-            return res.status(202).json(result)
-          })
-          .catch(err => {
-            return err
-          })
-})
-</p>
-<p>
-router.patch('/userModifyRoutine/:id',[jsonParser,isLoggedIn], (req,res,next) => {
-  let userID = req.params.id
-  let positionRoutine = req.body[0]
-  let userNewRoutine = req.body[1]
-  
-  Users
-    .updateRoutine(userID,positionRoutine,userNewRoutine)
-      .then(result => {
-        console.log(result)
-        return res.status(202).json(result)
-      })
-      .catch(err => {
-        return err
-      })
-
-})
-</p>
-<p>
-router.delete('/userDeleteRoutine/:id', isLoggedIn, (req,res,next) => { 
-  let userID = req.params.id
-  let positionRoutine = req.headers.position
-  let idRoutine = req.headers.idroutine
-  //console.log("Delete")
-  //console.log(userID)
-  //console.log(positionRoutine)
-  //console.log(idRoutine)
-  
-  Users
-    .deleteRoutine(userID,positionRoutine,idRoutine)
-      .then(result => {
-        console.log(result)
-        return res.status(404).json(result)
-      })
-      .catch(err => {
-        return err
-      })
-  
-}),
-</p>
-<p>
-router.delete('/userDeleteFavorite/:id', isLoggedIn, (req,res,next) => { 
-  let userID = req.params.id
-  let positionRoutine = req.headers.position
-  let idRoutine = req.headers.idroutine
-  //console.log("Delete")
-  //console.log(userID)
-  //console.log(positionRoutine)
-  //console.log(idRoutine)
-  
-  Users
-    .deleteFavoriteRoutine(userID,positionRoutine,idRoutine)
-      .then(result => {
-        console.log(result)
-        return res.status(404).json(result)
-      })
-      .catch(err => {
-        return err
-      })
-  
-})
-</p>
-<p>
-router.get('/logout',isLoggedIn, (req,res, next) => {
-  req.logout()
-  res.redirect('/');
-})
-</p>
-<p>
-router.use('/',notLoggedIn, (req,res,next) => {
-  next();
-})
-</p>
-<p>
-router.get('/', function(req, res, next) {
-  res.render('profile', { title: 'profile'});
-  //res.send('login')
-});
-</p>
+<p>To update all the information from the user we need this endpoint.</p>
+<p>We need the function isLoogedIn for validate that the user is loggin</p>
+<p>The route need the id of the user as parameter</p>
+<p>The information will load in the profile section</p>
+<pre>
+    <code>
+        router.patch('/userPatch/:id', isLoggedIn, (req,res,next) => {})
+    </code>
+<pre>
 
 
-module.exports = router;
+<p>To add a new routine to the user we need this endpoint.</p>
+<p>We need the function isLoogedIn for validate that the user is loggin</p>
+<p>The route need the id of the user as parameter</p>
+<p>The information will load in the profile section</p>
+<pre>
+    <code>
+        router.post('/userPushRoutine/:id',[jsonParser,isLoggedIn],(req,res,next) => {})
+    </code>
+</pre>
+<p>The body request will have something like this: </p>
+<pre>
+    <code>
+        monday: {
+            muslce1:bicep,
+            muscle2:tricep,
+            exercise: [www.youtube.com/example, www.youtube.com/example]
+        },
+        tuesday: {
+            muslce1: off,
+            muscle2: off,
+            exercise:[null,null]
+        },
+        wednesday: {
+            muslce1: off,
+            muscle2: off,
+            exercise:[null,null]
+        },
+        thursday: {
+           muslce1: off,
+           muscle2: off,
+           exercise:[null,null]
+        },
+        friday: {
+            muslce1:bicep,
+            muscle2:tricep,
+            exercise: [www.youtube.com/example, www.youtube.com/example]
+        }
+    </code>
+</pre>
+
+<p>To modify a routine to the user we need this endpoint.</p>
+<p>We need the function isLoogedIn for validate that the user is loggin</p>
+<p>The route need the id of the user as parameter</p>
+<p>The information will load in the profile section</p>
+<pre>
+    <code>
+        router.patch('/userModifyRoutine/:id',[jsonParser,isLoggedIn], (req,res,next) => {})
+    </code>
+</pre>
+<p>The body request will have something like this: </p>
+<pre>
+    <code>
+        monday: {
+            muslce1:bicep,
+            muscle2:tricep,
+            exercise: [www.youtube.com/example, www.youtube.com/example]
+        },
+        tuesday: {
+            muslce1: off,
+            muscle2: off,
+            exercise:[null,null]
+        },
+        wednesday: {
+            muslce1: off,
+            muscle2: off,
+            exercise:[null,null]
+        },
+        thursday: {
+           muslce1: off,
+           muscle2: off,
+           exercise:[null,null]
+        },
+        friday: {
+            muslce1:bicep,
+            muscle2:tricep,
+            exercise: [www.youtube.com/example, www.youtube.com/example]
+        }
+    </code>
+</pre>
+
+<p>To modify a routine to the user we need this endpoint.</p>
+<p>We need the function isLoogedIn for validate that the user is loggin</p>
+<p>The route need the id of the user as parameter</p>
+<p>The information will load in the profile section</p>
+<pre>
+    <code>
+    router.delete('/userDeleteRoutine/:id', isLoggedIn, (req,res,next) => { })
+    </code>
+</pre>
+<p>In the headers we need to add the id of the routine and the position of the routine<p>
+
+<p>To delete a routine of the user we need this endpoint.</p>
+<p>We need the function isLoogedIn for validate that the user is loggin</p>
+<p>The route need the id of the user as parameter</p>
+<p>The information will load in the profile section</p>
+<pre>
+    <code>
+        router.delete('/userDeleteFavorite/:id', isLoggedIn, (req,res,next) => {...})
+    </code>
+</pre>
+<p>In the headers we need to add the id of the routine and the position of the routine<p>
+
+<p>To logout we need this endpoint.</p>
+<p>We need the function isLoogedIn for validate that the user is loggin</p>
+<p>The information will load in the home section</p>
+<pre>
+    <code>
+        router.get('/logout',isLoggedIn, (req,res, next) => {...})
+    </code>
+</pre>
+
+<p>This two functions validate the route for a user that login<p>
+<pre>
+    <code>
+    function isLoggedIn(req,res,next) {
+        if(req.isAuthenticated()) {
+            return next();
+        }
+        res.redirect('/')
+    }
+</code>
+    <code>
+    function notLoggedIn(req,res,next) {
+        if(!req.isAuthenticated()) {
+            return next();
+        }
+        res.redirect('/profile')
+    }
+    </code>
+</pre>
+<h4>Nutrition:<h4>
+<p>Load all the information of the nutrition section.</p>
+<p>Dont need to validate login</p>
+<pre>
+    <code>
+        router.get('/', function(req, res, next) {});
+    </code>
+</pre>
+
+<p>http://localhost:8080/nutrition</p>
+
+<h4>Login:<h4>
+
+<p>Load all the information of the login section.</p>
+<pre>
+    <code>
+        router.get('/', function(req, res, next) {});
+    </code>
+</pre>
+
+<p>http://localhost:8080/login</p>
 
 
-function isLoggedIn(req,res,next) {
-  if(req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect('/')
-}
+<p>Load all the information of the login section.</p>
+<p>This route is needed to sign up.</p>
+<pre>
+    <code>
+        router.post('/',passport.authenticate('local.signup', {
+            successRedirect:'/profile',
+            failureRedirect:'/login',
+            failureFlash: true
+        }));
+    </code>
+</pre>
 
-function notLoggedIn(req,res,next) {
-  if(!req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect('/profile')
-}
+
+<p>Load all the information of the login section.</p>
+<p>This route is needed to sign in.</p>
+<pre>
+    <code>
+    router.post('/signin',passport.authenticate('local.signin', {
+        successRedirect:'/profile',
+        failureRedirect:'/login',
+        failureFlash: true
+    }));
+    </code>
+</pre>
+
+<p>This two functions validate the route for a user that login<p>
+<pre>
+    <code>
+    function isLoggedIn(req,res,next) {
+        if(req.isAuthenticated()) {
+            return next();
+        }
+        res.redirect('/')
+    }
+</code>
+    <code>
+    function notLoggedIn(req,res,next) {
+        if(!req.isAuthenticated()) {
+            return next();
+        }
+        res.redirect('/profile')
+    }
+    </code>
+</pre>
+
+
+<h4>LifeStyle:<h4>
+<p>Load all the information of the life style section.</p>
+<p>Dont need to validate login</p>
+<pre>
+    <code>
+        router.get('/', function(req, res, next) {});
+    </code>
+</pre>
+
+<p>http://localhost:8080/life-style</p>
+
+<h4>Home:<h4>
+<p>Load all the information of the home section.</p>
+<p>Dont need to validate login</p>
+<pre>
+    <code>
+        router.get('/', function(req, res, next) { });
+    </code>
+</pre>
+<p>http://localhost:8080/</p>
+
+<h4>AllUsers:<h4>
+<h4>All Users:<h4>
+<p>Load all the information of all users in a new section.</p>
+<p>Need to validate login</p>
+<pre>
+    <code>
+        router.get('/', function(req, res, next) {});
+    </code>
+</pre>
+<p>http://localhost:8080/</p>
+
+
+
