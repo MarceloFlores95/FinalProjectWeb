@@ -5,7 +5,9 @@
 {{!-- <p>You id is {{id}}</p> --}}
 
 <div>
-    <a class="able"href="/allusers">See other users!</a>
+    <button onclick ="redirectAll()" type="submit" class="ableUsers"href="/allusers">See other users!</button>
+    <br>
+    <br>
 </div>
 
 <div id = "profileMenu">
@@ -54,7 +56,6 @@
     <div id="goalModal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
-            <span class="close">&times;</span>
             <form action="" class ="modalUserGoal">
                 <label for="">Goal:</label>
                 <input type="text" id="input-goal" name="input-goal" value="{{goal}}" max="30"><br><br>
@@ -68,7 +69,7 @@
     <div id="createRoutineModal" class="modal">
         <!-- Modal content -->
         <div class="modal-content">
-            <span class="close" id ="close3">&times;</span>
+            
             <form action="" class ="modalCreateRoutine">
                 <h3>We recomend to choose 2 muscles for each day.</h3>
                 
@@ -231,7 +232,7 @@
         <label hidden for="" id ="labelForIDRoutine"></label>
         <!-- Modal content -->
         <div class="modal-content">
-            <span class="close">&times;</span>
+           
             <form action="" class ="modalModifyRoutine">
                 <h3>We recomend to choose 2 muscles for each day.</h3>
                 
@@ -394,3 +395,9 @@
 </div>
 
 <script src="./javascripts/profile.js"></script>
+<script>
+function redirectAll() {
+    window.location.replace("/allusers")
+}
+
+</script>
