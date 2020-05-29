@@ -22,124 +22,143 @@ function allUsersFetchSection() {
             throw new Error(response.statusText)
         })
         .then(responseJSON => {
-            
+            var content ="";
             for ( let i = 0; i < responseJSON.length; i ++ ){
                 // section.innerHTML += `${responseJSON[i].name}`
                 cont = 0
                 if(responseJSON[i]._id != userID) {
                     routine.push(responseJSON[i])
-                    section.innerHTML += `
-                                <div id = "user${i}">
+                    content += `
+                                <div>
                                 <h2>${responseJSON[i].name}</h2>
+                                </div>
+
+                    `
+                    content += `
+                                <div class = "userR" id = "user${i}">
+                                
+
                     `
                     for(let j = 0;j < responseJSON[i].routines.length;j++) { 
                         // console.log(responseJSON[i].routines[j])
                         if(responseJSON[i].routines[j].private == false) {
-                            section.innerHTML += '<h4>Monday </h4>'
+                            
                             if (responseJSON[i].routines[j].monday.muscle1 != "off") {
-                                section.innerHTML += `
+                                content += '<h4>Monday</h4>'
+                                content += `<hr>
                                 <p>${responseJSON[i].routines[j].monday.muscle1}</p>
-                                <iframe width="280" height="210"
+                                <br><br>
+                                <iframe class = "box" width="280" height="210"
                                     src=${responseJSON[i].routines[j].monday.exercise[0]}>
                                 </iframe>
                                 `
                             }
 
                             if (responseJSON[i].routines[j].monday.muscle2 != "off"){
-                                section.innerHTML += `
+                                content += `
                                 <p>${responseJSON[i].routines[j].monday.muscle2}</p>
-                                <iframe width="280" height="210"
+                                <iframe class = "box" width="280" height="210"
                                     src=${responseJSON[i].routines[j].monday.exercise[1]}>
                                 </iframe>
+                                <hr>
                                 `
                             }
-                            section.innerHTML += '<h4> Tuesday </h4>'
                             if (responseJSON[i].routines[j].tuesday.muscle1 != "off") {
-                                section.innerHTML += `
+                                content += '<h4> Tuesday </h4>'
+                                content += `<hr>
                                 <p>${responseJSON[i].routines[j].tuesday.muscle1}</p>
-                                <iframe width="280" height="210"
+                                <iframe class = "box" width="280" height="210"
                                     src=${responseJSON[i].routines[j].tuesday.exercise[0]}>
                                 </iframe>
                                 `
                             }
 
                             if (responseJSON[i].routines[j].tuesday.muscle2 != "off"){
-                                section.innerHTML += `
+                                content += `
                                 <p>${responseJSON[i].routines[j].tuesday.muscle2}</p>
-                                <iframe width="280" height="210"
+                                <iframe class = "box" width="280" height="210"
                                     src=${responseJSON[i].routines[j].tuesday.exercise[1]}>
                                 </iframe>
+                                <hr>
                                 `
                             }
-                            section.innerHTML += '<h4> Wednesday </h4>'
+                            
                             if (responseJSON[i].routines[j].wednesday.muscle1 != "off") {
-                                section.innerHTML += `
+                                content += '<h4> Wednesday </h4>'
+                                content += `<hr>
                                 <p>${responseJSON[i].routines[j].wednesday.muscle1}</p>
-                                <iframe width="280" height="210"
+                                <iframe class = "box" width="280" height="210"
                                     src=${responseJSON[i].routines[j].wednesday.exercise[0]}>
                                 </iframe>
                                 ` 
                             }
 
                             if (responseJSON[i].routines[j].wednesday.muscle2 != "off"){
-                                section.innerHTML += `
+                                content += `
                                 <p>${responseJSON[i].routines[j].wednesday.muscle2}</p>
-                                <iframe width="280" height="210"
+                                <iframe class = "box" width="280" height="210"
                                     src=${responseJSON[i].routines[j].wednesday.exercise[1]}>
                                 </iframe>
+                                <hr>
                                 `  
                             }
 
-                            section.innerHTML += '<h4> Thursday </h4>'
+                            
                             if (responseJSON[i].routines[j].thursday.muscle1 != "off") {
-                                section.innerHTML += `
+                                content += '<h4> Thursday </h4>'
+                                content += `<hr>
                                 <p>${responseJSON[i].routines[j].thursday.muscle1}</p>
-                                <iframe width="280" height="210"
+                                <iframe class = "box" width="280" height="210"
                                     src=${responseJSON[i].routines[j].thursday.exercise[0]}>
                                 </iframe>
                                 `
                             }
 
                             if (responseJSON[i].routines[j].thursday.muscle2 != "off"){
-                                section.innerHTML += `
+                                content+= `
                                 <p>${responseJSON[i].routines[j].thursday.muscle2}</p>
-                                <iframe width="280" height="210"
+                                <iframe class = "box" width="280" height="210"
                                     src=${responseJSON[i].routines[j].thursday.exercise[1]}>
-                                </iframe>
+                                </iframe><hr>
+                                <hr>
                                 `
                             }
-                            section.innerHTML += '<h4> Friday </h4>'
+                            
                             if (responseJSON[i].routines[j].friday.muscle1 != "off") {
-                                section.innerHTML += `
+                                content += '<h4> Friday </h4>'
+                                content += `<hr>
                                 <p>${responseJSON[i].routines[j].friday.muscle1}</p>
-                                <iframe width="280" height="210"
+                                <iframe class = "box" width="280" height="210"
                                     src=${responseJSON[i].routines[j].friday.exercise[0]}>
                                 </iframe>                                `
                             }
 
                             if (responseJSON[i].routines[j].friday.muscle2 != "off"){
-                                section.innerHTML += `
+                                content += `
                                 <p>${responseJSON[i].routines[j].friday.muscle2}</p>
-                                <iframe width="280" height="210"
+                                <iframe class = "box" width="280" height="210"
                                     src=${responseJSON[i].routines[j].friday.exercise[1]}>
                                 </iframe>
-                                <br>
+                                <hr>
                                 `
                             }
                             
                             // console.log(JSON.stringify(responseJSON[i].routines[j]))
-                            section.innerHTML +=`
+                            content +=`
                                         </div>
-                                        <button onclick="addFavorite('${responseJSON[i]._id}','${responseJSON[i].routines[j]._id}')"> Add to favorites </button>
+                                        <button id= "addFavoriteRoutine" onclick="addFavorite('${responseJSON[i]._id}','${responseJSON[i].routines[j]._id}')"> Add to favorites </button>
+                                        <br>
                                         <hr>
+                                        <br>
 
                                         `
                         } else {
                             cont = cont + 1;
                             if (responseJSON[i].routines.length == cont) {
-                                section.innerHTML +=`The user has 0 routines to share.`
+                                content +=`The user has 0 routines to share.`
                             }
                         }
+                        section.innerHTML = content
                     }                   
                 }
             }
@@ -168,7 +187,7 @@ function addFavorite(userID, routineID) {
     }
     let userActiveID = document.getElementById("labelForIDUser").innerHTML
 
-    console.log(newRoutine)
+    // console.log(newRoutine)
 
     let url = `allusers/userPushFavorite/${userActiveID}`;
         
@@ -189,7 +208,7 @@ function addFavorite(userID, routineID) {
         })
         .then( responseJSON => {
         console.log(responseJSON)
-        
+        document.getElementById("addFavoriteRoutine").disabled = true;
         })
         .catch( err => {
         console.log(err.message)
