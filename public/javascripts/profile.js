@@ -1605,6 +1605,7 @@ function favoritesFetchSection(id) {
     fetch( url, settings )
         .then( response => {
             if( response.ok ){
+                section.innerHTML =""
                 return response.json();
             }
             throw new Error( response.statusText );
@@ -1612,9 +1613,11 @@ function favoritesFetchSection(id) {
         .then( responseJSON => {
             if (responseJSON.favorites.length > 0) {
                 for ( let i = 0; i < responseJSON.favorites.length; i ++ ){
-                    content +=`<label hidden for="" id ="labelForIDFromRoutine${i}"></label>
+                    
+                    section.innerHTML +=`<label hidden for="" id ="labelForIDFromRoutineF${i}">${responseJSON.favorites[i]._id}</label>
                     <label hidden for="" id ="labelForUserID">${responseJSON._id}</label>
                                         `
+                                        
                     content += ` 
                                 <div class= 'eachRoutineClass'>
                                     <div class = "daysofexercise"> 
@@ -1720,9 +1723,10 @@ function favoritesFetchSection(id) {
                                             </iframe>
                                             `
                     }
+        
                     content += `                  
                                     </div>
-                                    <button class = "eraseFavoriteRoutine"onclick=eraseFavorite(${i})>Erase routine</button>
+                                    <button class = "eraseFavoriteRoutine" onclick=eraseFavorite('${i}')>Erase routine</button>
                                 </div> 
                     `
                 }
@@ -1731,7 +1735,7 @@ function favoritesFetchSection(id) {
                 <p>You dont have favorites, please add one.<p>
                 `
             }
-            section.innerHTML = content
+            section.innerHTML += content
         })
         .catch( err => {
             console.log(err.message)
@@ -1745,7 +1749,7 @@ function favoritesFetchSection(id) {
 function eraseFavorite(positionForFavoriteID) {
     // console.log(positionForFavoriteID)
     let userID = document.getElementById('labelForUserID').innerHTML
-    let userFavoriteID = document.getElementById(`labelForIDFromRoutine${positionForFavoriteID}`).innerHTML
+    let userFavoriteID = document.getElementById(`labelForIDFromRoutineF${positionForFavoriteID}`).innerHTML
     console.log(userID)
     console.log(userFavoriteID)
 
@@ -1760,12 +1764,12 @@ function eraseFavorite(positionForFavoriteID) {
     fetch(url, settings)
         .then(response => {
             //routinesFetchSection(id)
-            exerciseFetchSection(userID)
+            // exerciseFetchSection(userID)
             return response.json();
             
         })
         .then(resultJSON => {
-            routinesFetchSection(id)
+            favoritesFetchSection(userID)
             console.log(resultJSON)
         })
         .catch(err => {

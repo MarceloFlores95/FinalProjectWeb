@@ -177,8 +177,8 @@ const Users = {
     },
     addRoutineUser:function(userID,userRoutine) {
         const id = {_id:userID}
-        console.log("AddUserTourine")
-        console.log(userRoutine)
+        // console.log("AddUserTourine")
+        // console.log(userRoutine)
         return userCollection
             .findOneAndUpdate(id,{$push:userRoutine})
                 .then(result => {
@@ -227,7 +227,7 @@ const Users = {
         const idR = {_id:idRoutine}
         let dp = `routines.${positionRoutine}`
         //aux[dp] = userNewRoutine.routines
-        console.log(dp)
+        // console.log(dp)
         return userCollection
             .updateOne(id,{$pull:{"routines":idR}})
         /*
@@ -254,7 +254,7 @@ const Users = {
     addFavoriteRoutine:function(userID,userRoutine) {
         const id = {_id:userID}
         console.log("AddUserFavoriteRoutine")
-        console.log(userRoutine)
+        // console.log(userRoutine)
         return userCollection
             .findOneAndUpdate(id,{$push:{"favorites":userRoutine}},{useFindAndModify: false})
                 .then(result => {
@@ -270,7 +270,7 @@ const Users = {
         const idR = {_id:idRoutine}
         let dp = `favorites.${positionRoutine}`
         //aux[dp] = userNewRoutine.routines
-        console.log(dp)
+        console.log("Routine")
         return userCollection
             .updateOne(id,{$pull:{"favorites":idR}})
     }

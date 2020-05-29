@@ -172,7 +172,7 @@ router.delete('/userDeleteFavorite/:id', isLoggedIn, (req,res,next) => {
   Users
     .deleteFavoriteRoutine(userID,positionRoutine,idRoutine)
       .then(result => {
-        console.log(result)
+        // console.log(result)
         return res.status(404).json(result)
       })
       .catch(err => {
