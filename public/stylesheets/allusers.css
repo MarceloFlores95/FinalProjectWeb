@@ -29,6 +29,8 @@ body{
 .userR {
     display:flex;
     flex-wrap: wrap;
+    align-content: center;
+    width: 100%;
 }
 
 .box{
