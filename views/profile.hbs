@@ -1,8 +1,7 @@
 <link rel='stylesheet' href='/stylesheets/profile.css' /> <!--84-->
 <const id = {{id}}/>
 
-<h1>{{title}}</h1>
-<p>Welcome {{name}} to your {{title}}</p>
+<h1 class= "titleProfile">Welcome {{name}}</h1>
 {{!-- <p>You id is {{id}}</p> --}}
 
 <div>
@@ -43,9 +42,10 @@
                 <input type="number" step="0.01" id="input-actual-weight" name="input-actual-weight" value={{actual_weight}}><br><br>
 
                 <label for="">Initial Weight:</label>
-                <input type="number" step="0.01" id="input-initial-weight" name="input-initial-weight" value={{initial_weight}}><br><br>
-                
-                <button onclick="saveNewInfo(`{{id}}`)">Save</button>
+                <input type="number" step="0.01" id="input-initial-weight" name="input-initial-weight" value={{initial_weight}}>
+                <label for="">*This is your weight in the moment you create an account.</label>
+                <br><br>
+                <button class = "save" onclick="saveNewInfo(`{{id}}`)"><span>Save</span></button>
             </form>
         </div>
     </div>

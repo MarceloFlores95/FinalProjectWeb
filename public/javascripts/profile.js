@@ -112,19 +112,23 @@ function profileFetchSection(id){
         .then( responseJSON => {
             section.innerHTML = `
             <div class="userInfo">
-                <label for="">Name:${responseJSON.name}</label>
-                <br>
-                <label for="">Age:${responseJSON.age} </label>
-                <br>
-                <label for="">Height:${responseJSON.height} </label>
-                <br>
-                <label for="">Actual Weight:${responseJSON.actual_weight} </label>
-                <br>
-                <label for="">Inicial Weight:${responseJSON.initial_weight} </label>
-            </div>
-            <div class="buttonInfo">
-                <button id="modalUserInfo" onclick="editInfoUser()" >Modify Information</button>
-                <button id="modalUserInfo" onclick="deleteInfoUser('${id}')" >Delete Account</button>
+            <img src="../images/Profile1.jpg" width="200" alt="Avatar" height="150">
+                <br><br>
+                <div class="userInfoText">
+                    <label for="">Name:${responseJSON.name}</label>
+                    <br>
+                    <label for="">Age:${responseJSON.age} </label>
+                    <br>
+                    <label for="">Height:${responseJSON.height} </label>
+                    <br>
+                    <label for="">Actual Weight:${responseJSON.actual_weight} </label>
+                    <br>
+                    <label for="">Inicial Weight:${responseJSON.initial_weight} </label>
+                <div class="userInfoText">
+                <div class="buttonInfo">
+                    <button id="modalUserInfo" onclick="editInfoUser()" >Modify Information</button>
+                    <button id="modalUserInfo" onclick="deleteInfoUser('${id}')" >Delete Account</button>
+                </div>
             </div>
             `
         })
@@ -175,10 +179,10 @@ function progressFetchSection(id) {
                 section.innerHTML = `
                                     <div class = "userProgress"> 
                                     
-                                    <h1>Current Weight:</h1>
+                                    <h2>Current Weight:</h2>
                                     <h4>${responseJSON.actual_weight}</h4>
-                                    
-                                    <h2>Your progress is:</h2>
+                                    <br><br>
+                                    <br>                                    <h3>Your progress is:</h3>
                                     <h4>${progress} %</h4>
                                     <div id="myProgress">
                                         <div id="myProgressBar"></div>
@@ -222,8 +226,10 @@ function goalFetchSection(id) {
         .then( responseJSON => {
             section.innerHTML = `
             <div class = "userGoal">     
-                <h1>Your goal is:</h1>
-                <h4>${responseJSON.goal} </h4>      
+                <h2>Your goal is:</h2>
+                <h1>${responseJSON.goal} </h1> 
+                <img src="../images/goal.jpg" width="300" alt="Avatar" height="262">
+
             </div>
             <div class="buttonInfo">
                 <button id="modalGoalInfo" onclick="editGoalUser()" >Modify Information</button>
@@ -785,9 +791,10 @@ function saveNewRoutine(id) {
 
 function routinesFetchSection(id) {
     console.log("Routines Fetch Section")
-    section.innerHTML = `
+    var content;
+    content = `
         <div class= 'routineClass'>
-            <button id = 'createRoutine' onclick="createNewRoutine('${id}')"> Create new routine</button>
+            <button id = 'createRoutine' onclick="createNewRoutine('${id}')"> Create new routine</button> <br><br>
     `
     // console.log(id)
     let url = `profile/userInfo/${id}`;
@@ -805,141 +812,144 @@ function routinesFetchSection(id) {
         .then( responseJSON => {
             if (responseJSON.routines.length > 0) {
                 for ( let i = 0; i < responseJSON.routines.length; i ++ ){
-                    section.innerHTML +=`<label hidden for="" id ="labelForIDFromRoutine${i}">${responseJSON.routines[i]._id}</label>`
-                    section.innerHTML += ` 
+                    content +=`<label hidden for="" id ="labelForIDFromRoutine${i}">${responseJSON.routines[i]._id}</label>`
+                    content += ` 
                                 <div class= 'eachRoutineClass'>
                                     <div class = "daysofexercise"> 
                                         <section>
-                                            <h3>Monday:<h3>
+                                            <h3>Monday:</h3>
                                             <h4>Muscles to train: ${responseJSON.routines[i].monday.muscle1} and ${responseJSON.routines[i].monday.muscle2}</h4>
-                                            <h4>Recommended videos:<h4>  `
+                                             `
                     if(responseJSON.routines[i].monday.exercise[0] != "null") {
-                        section.innerHTML += ` 
+                        content += ` 
+                        <h4>Recommended videos:</h4> 
                                             <iframe width="280" height="210"
                                                 src=${responseJSON.routines[i].monday.exercise[0]}>
                                             </iframe>
                                             `
                     }
                     if(responseJSON.routines[i].monday.exercise[1] != "null") {
-                        section.innerHTML += ` 
+                        content += ` 
                                             <iframe width="280" height="210"
                                                 src=${responseJSON.routines[i].monday.exercise[1]}>
                                             </iframe>
                                             `
                     }
-                    section.innerHTML += `                     
+                    content += `                     
                                         </section>
                                         <section>
-                                            <h3>Tuesday:<h3>
+                                            <h3>Tuesday:</h3>
                                             <h4>Muscles to train: ${responseJSON.routines[i].tuesday.muscle1} and ${responseJSON.routines[i].tuesday.muscle2}</h4>
-                                            <h4>Recommended videos:<h4> 
+                                            
                                         `
                     if(responseJSON.routines[i].tuesday.exercise[0] != "null") {
-                        section.innerHTML += ` 
+                        content += ` <h4>Recommended videos:</h4> 
                                             <iframe width="280" height="210"
                                                 src=${responseJSON.routines[i].tuesday.exercise[0]}>
                                             </iframe>
                                             `
                     }
                     if(responseJSON.routines[i].tuesday.exercise[1] != "null") {
-                        section.innerHTML += ` 
+                        content += ` 
                                             <iframe width="280" height="210"
                                                 src=${responseJSON.routines[i].tuesday.exercise[1]}>
                                             </iframe>
                                             `
                     }
-                    section.innerHTML += ` 
+                    content += ` 
                                         </section>
                                         <section>
-                                            <h3>Wednesday:<h3>
+                                            <h3>Wednesday:</h3>
                                             <h4>Muscles to train: ${responseJSON.routines[i].wednesday.muscle1} and ${responseJSON.routines[i].wednesday.muscle2}</h4>
-                                            <h4>Recommended videos:<h4>
+                                            
                                             `
                     if(responseJSON.routines[i].wednesday.exercise[0] != "null") {
-                        section.innerHTML += ` 
+                        content += ` 
+                        <h4>Recommended videos:</h4> 
                                             <iframe width="280" height="210"
                                                 src=${responseJSON.routines[i].wednesday.exercise[0]}>
                                             </iframe>
                                             `
                     }
                     if(responseJSON.routines[i].wednesday.exercise[1] != "null") {
-                        section.innerHTML += ` 
+                        content += ` 
                                             <iframe width="280" height="210"
                                                 src=${responseJSON.routines[i].wednesday.exercise[1]}>
                                             </iframe>
                                             `
                     }
-                    section.innerHTML += `                       
+                    content+= `                       
                                         </section>
                                         <section>
-                                            <h3>Thursday:<h3>
+                                            <h3>Thursday:</h3>
                                             <h4>Muscles to train: ${responseJSON.routines[i].thursday.muscle1} and ${responseJSON.routines[i].thursday.muscle2}</h4>
-                                            <h4>Recommended videos:<h4>
+                                            
                                             `
                     if(responseJSON.routines[i].thursday.exercise[0] != "null") {
-                        section.innerHTML += ` 
+                        content += ` 
+                        <h4>Recommended videos:</h4> 
                                             <iframe width="280" height="210"
                                                 src=${responseJSON.routines[i].thursday.exercise[0]}>
                                             </iframe>
                                             `
                     }
                     if(responseJSON.routines[i].thursday.exercise[1] != "null") {
-                        section.innerHTML += ` 
+                        content+= ` 
                                             <iframe width="280" height="210"
                                                 src=${responseJSON.routines[i].thursday.exercise[1]}>
                                             </iframe>
                                             `
                     }
-                    section.innerHTML += `         
+                    content += `         
                                         </section>
                                         <section>
-                                            <h3>Friday:<h3>
+                                            <h3>Friday:</h3>
                                             <h4>Muscles to train: ${responseJSON.routines[i].friday.muscle1} and ${responseJSON.routines[i].friday.muscle2}</h4>
-                                            <h4>Recommended videos:<h4>
+                                            
                                             `
                     if(responseJSON.routines[i].friday.exercise[0] != "null") {
-                        section.innerHTML += ` 
+                        content += ` 
+                        <h4>Recommended videos:</h4> 
                                             <iframe width="280" height="210"
                                                 src=${responseJSON.routines[i].friday.exercise[0]}>
                                             </iframe>
                                             `
                     }
                     if(responseJSON.routines[i].friday.exercise[1] != "null") {
-                        section.innerHTML += ` 
+                        content += ` 
                                             <iframe width="280" height="210"
                                                 src=${responseJSON.routines[i].friday.exercise[1]}>
                                             </iframe>
                                             `
                     }
-                    section.innerHTML += `                          
+                    content += `                          
                                         </section>
                                         <p>This routine is 
                                         `
                     if(responseJSON.routines[i].private == true) {
-                        section.innerHTML += `private </p>`
+                        content += `private </p>`
                     } else {
-                        section.innerHTML += `public </p>`
+                        content += `public </p>`
                     }
-                    section.innerHTML += `                  
+                    content += `                  
                                     </div>
-                                    <button onclick=modifyRoutine(${JSON.stringify(responseJSON.routines[i])},${i})>Modify routine</button>
-                                    <button onclick=eraseRoutine(${JSON.stringify(responseJSON._id)},${i},returnPositionRoutine(${i}))>Erase routine</button>
+                                    <button id = "modifyRoutine" onclick=modifyRoutine(${JSON.stringify(responseJSON.routines[i])},${i})>Modify routine</button>
+                                    <button id = "eraseRoutine" onclick=eraseRoutine(${JSON.stringify(responseJSON._id)},${i},returnPositionRoutine(${i}))>Erase routine</button>
                                 </div> 
                     `
                 }
+                
             } else {
-                section.innerHTML += `
+                content += `
                 <p>You dont have routines, please add one.<p>
                 `
             }
-            
+            content +=`</div> `
+            section.innerHTML = content;
         })
         .catch( err => {
             console.log(err.message)
         });
-
-    
-    section.innerHTML +=`</div> `
 }
 
 function eraseRoutine(id,position,idRoutine) {
@@ -1387,7 +1397,7 @@ function exerciseFetchSection(id) {
     let day = actualDate.getDay();
     // let day = 1
     // section.innerHTML = `${day}`
-
+    console.log(day)
     // Sunday
     if(day == 0) {
         section.innerHTML = "Today is Sunday, relax!"
@@ -1412,30 +1422,41 @@ function exerciseFetchSection(id) {
         })
         .then( responseJSON => {
             // Monday
+            var content;
             console.log(responseJSON)
             if(day == 1) {
                 for ( let i = 0; i < responseJSON.routines.length; i ++ ){
-                    if(responseJSON.routines[i].monday.muscle1 == "off" || responseJSON.routines[i].monday.muscle2 == "off" ) {
-                        section.innerHTML = "You have a break day!"
+                    if(responseJSON.routines[i].monday.muscle1 == "off" && responseJSON.routines[i].monday.muscle2 == "off" ) {
+                        content = "You have a break day!"
                     } else {
-                        section.innerHTML = `
+                        content = `
                             <div class="day">
                                 <p>Today is Monday, you choose this muscles to train </p>
-                                <label for="">Name:${responseJSON.routines[i].monday.muscle1}</label>
-                                <br>
-                                <iframe width="280" height="210"
-                                    src=${responseJSON.routines[i].monday.exercise[0]}>
-                                </iframe>
-                                <br>
-                                <label for="">Name:${responseJSON.routines[i].monday.muscle2}</label>
-                                <br>
-                                <iframe width="280" height="210"
-                                    src=${responseJSON.routines[i].monday.exercise[1]}>
-                                </iframe>
-                            </div>
+                                `
+                                if(responseJSON.routines[i].monday.muscle1 != "off") {
+                                    content +=
+                                    `
+                                    <label for="">Name:${responseJSON.routines[i].monday.muscle1}</label>
+                                    <br>
+                                    <iframe width="280" height="210"
+                                        src=${responseJSON.routines[i].monday.exercise[0]}>
+                                    </iframe>
+                                    <br>`
+                                }
+                                if(responseJSON.routines[i].monday.muscle2 != "off") {
+                                    content +=` 
+                                        <label for="">Name:${responseJSON.routines[i].monday.muscle2}</label>
+                                        <br>
+                                        <iframe width="280" height="210"
+                                            src=${responseJSON.routines[i].monday.exercise[1]}>
+                                        </iframe>
+                                    </div>`
+                                    
+                            }
+                            content +=` 
                             <div class="buttonInfo">
-                                <button id="modalUserInfo" onclick="editExercise()" >Modify Exercise</button>
-                            </div>
+                                        <button id="modalUserInfo" onclick="editExercise()" >Modify Exercise</button>
+                                    </div>   
                             `
                     }  
                 }
@@ -1443,10 +1464,10 @@ function exerciseFetchSection(id) {
             // Tuesday
             if(day == 2) {
                 for ( let i = 0; i < responseJSON.routines.length; i ++ ){
-                    if(responseJSON.routines[i].tuesday.muscle1 == "off" || responseJSON.routines[i].tuesday.muscle2 == "off") {
-                        section.innerHTML = "You have a break day!"
+                    if(responseJSON.routines[i].tuesday.muscle1 == "off" && responseJSON.routines[i].tuesday.muscle2 == "off") {
+                        content = "You have a break day!"
                     } else {
-                        section.innerHTML = `
+                        content = `
                         <div class="day">
                             <p>Today is Tuesday, you choose this muscles to train </p>
                             <label for="">Name:${responseJSON.routines[i].tuesday.muscle1}</label>
@@ -1471,10 +1492,10 @@ function exerciseFetchSection(id) {
             // Wednesday
             if(day == 3) {
                 for ( let i = 0; i < responseJSON.routines.length; i ++ ){
-                    if(responseJSON.routines[i].wednesday.muscle1 == "off" || responseJSON.routines[i].wednesday.muscle2 == "off") {
-                        section.innerHTML = "You have a break day!"
+                    if(responseJSON.routines[i].wednesday.muscle1 == "off" && responseJSON.routines[i].wednesday.muscle2 == "off") {
+                        content = "You have a break day!"
                     } else {
-                        section.innerHTML = `
+                        content= `
                         <div class="day">
                             <p>Today is Wednesday, you choose this muscles to train </p>
                             <label for="">Name:${responseJSON.routines[i].wednesday.muscle1}</label>
@@ -1499,10 +1520,10 @@ function exerciseFetchSection(id) {
             // Thursday
             if(day == 4) {
                 for ( let i = 0; i < responseJSON.routines.length; i ++ ){
-                    if(responseJSON.routines[i].thursday.muscle1 == "off" || responseJSON.routines[i].thursday.muscle2 == "off") {
-                        section.innerHTML = "You have a break day!"
+                    if(responseJSON.routines[i].thursday.muscle1 == "off" && responseJSON.routines[i].thursday.muscle2 == "off") {
+                        content = "You have a break day!"
                     } else {
-                        section.innerHTML = `
+                        content= `
                         <div class="day">
                             <p>Today is Thursday, you choose this muscles to train </p>
                             <label for="">Name:${responseJSON.routines[i].thursday.muscle1}</label>
@@ -1528,32 +1549,41 @@ function exerciseFetchSection(id) {
             // Friday
             if(day == 5) {
                 for ( let i = 0; i < responseJSON.routines.length; i ++ ){
-                    if(responseJSON.routines[i].friday.muscle1 == "off" || responseJSON.routines[i].friday.muscle2 == "off") {
-                        section.innerHTML = "You have a break day!"
+                    if(responseJSON.routines[i].friday.muscle1 == "off" && responseJSON.routines[i].friday.muscle2 == "off" ) {
+                        content = "You have a break day!"
                     } else {
-                        section.innerHTML = `
-                        <div class="day">
-                            <p>Today is Friday, you choose this muscles to train </p>
-                            <label for="">Name:${responseJSON.routines[i].friday.muscle1}</label>
-                            <br>
-                            <iframe width="280" height="210"
-                                src=${responseJSON.routines[i].friday.exercise[0]}>
-                            </iframe>
-                            <br>
-                            <label for="">Name:${responseJSON.routines[i].friday.muscle2}</label>
-                            <br>
-                            <iframe width="280" height="210"
-                                src=${responseJSON.routines[i].friday.exercise[1]}>
-                            </iframe>
-                        </div>
-                        <div class="buttonInfo">
-                            <button id="modalUserInfo" onclick="editExercise()" >Modify Exercise</button>
-                        </div>
-                        `
-                    }
+                        content= `
+                            <div class="day">
+                                <p>Today is Friday, you choose this muscles to train </p>
+                                `
+                                if(responseJSON.routines[i].friday.muscle1 != "off") {
+                                    content+=
+                                    `
+                                    <label for="">Name:${responseJSON.routines[i].friday.muscle1}</label>
+                                    <br>
+                                    <iframe width="280" height="210"
+                                        src=${responseJSON.routines[i].friday.exercise[0]}>
+                                    </iframe>
+                                    <br>`
+                                }
+                                if(responseJSON.routines[i].friday.muscle2 != "off") {
+                                        content +=` 
+                                        <label for="">Name:${responseJSON.routines[i].friday.muscle2}</label>
+                                        <br>
+                                        <iframe width="280" height="210"
+                                            src=${responseJSON.routines[i].friday.exercise[1]}>
+                                        </iframe>
+                                    </div>`
+                                    
+                            }
+                            content +=` 
+                            <div class="buttonInfo">
+                                    </div>   
+                            `
+                    } 
                 }
             }
-
+            section.innerHTML = content
         })
         .catch( err => {
             console.log(err.message)
@@ -1562,7 +1592,8 @@ function exerciseFetchSection(id) {
 
 function favoritesFetchSection(id) {
     console.log("Favorites Fetch Section")
-    section.innerHTML = `
+    var content;
+    content = `
         <div class= 'favoriteClass'>
     `
     // console.log(id)
@@ -1581,10 +1612,10 @@ function favoritesFetchSection(id) {
         .then( responseJSON => {
             if (responseJSON.favorites.length > 0) {
                 for ( let i = 0; i < responseJSON.favorites.length; i ++ ){
-                    section.innerHTML +=`<label hidden for="" id ="labelForIDFromRoutine${i}">${responseJSON.favorites[i]._id}</label>
+                    content +=`<label hidden for="" id ="labelForIDFromRoutine${i}"></label>
                     <label hidden for="" id ="labelForUserID">${responseJSON._id}</label>
                                         `
-                    section.innerHTML += ` 
+                    content += ` 
                                 <div class= 'eachRoutineClass'>
                                     <div class = "daysofexercise"> 
                                         <section>
@@ -1592,20 +1623,20 @@ function favoritesFetchSection(id) {
                                             <h4>Muscles to train: ${responseJSON.favorites[i].monday.muscle1} and ${responseJSON.favorites[i].monday.muscle2}</h4>
                                             <h4>Recommended videos:<h4>  `
                     if(responseJSON.favorites[i].monday.exercise[0] != "null") {
-                        section.innerHTML += ` 
+                        content += ` 
                                             <iframe width="280" height="210"
                                                 src=${responseJSON.favorites[i].monday.exercise[0]}>
                                             </iframe>
                                             `
                     }
                     if(responseJSON.favorites[i].monday.exercise[1] != "null") {
-                        section.innerHTML += ` 
+                        content += ` 
                                             <iframe width="280" height="210"
                                                 src=${responseJSON.favorites[i].monday.exercise[1]}>
                                             </iframe>
                                             `
                     }
-                    section.innerHTML += `                     
+                    content+= `                     
                                         </section>
                                         <section>
                                             <h3>Tuesday:<h3>
@@ -1613,20 +1644,20 @@ function favoritesFetchSection(id) {
                                             <h4>Recommended videos:<h4> 
                                         `
                     if(responseJSON.favorites[i].tuesday.exercise[0] != "null") {
-                        section.innerHTML += ` 
+                        content+= ` 
                                             <iframe width="280" height="210"
                                                 src=${responseJSON.favorites[i].tuesday.exercise[0]}>
                                             </iframe>
                                             `
                     }
                     if(responseJSON.favorites[i].tuesday.exercise[1] != "null") {
-                        section.innerHTML += ` 
+                        content += ` 
                                             <iframe width="280" height="210"
                                                 src=${responseJSON.favorites[i].tuesday.exercise[1]}>
                                             </iframe>
                                             `
                     }
-                    section.innerHTML += ` 
+                    content += ` 
                                         </section>
                                         <section>
                                             <h3>Wednesday:<h3>
@@ -1634,20 +1665,20 @@ function favoritesFetchSection(id) {
                                             <h4>Recommended videos:<h4>
                                             `
                     if(responseJSON.favorites[i].wednesday.exercise[0] != "null") {
-                        section.innerHTML += ` 
+                        content += ` 
                                             <iframe width="280" height="210"
                                                 src=${responseJSON.favorites[i].wednesday.exercise[0]}>
                                             </iframe>
                                             `
                     }
                     if(responseJSON.favorites[i].wednesday.exercise[1] != "null") {
-                        section.innerHTML += ` 
+                        content += ` 
                                             <iframe width="280" height="210"
                                                 src=${responseJSON.favorites[i].wednesday.exercise[1]}>
                                             </iframe>
                                             `
                     }
-                    section.innerHTML += `                       
+                    content += `                       
                                         </section>
                                         <section>
                                             <h3>Thursday:<h3>
@@ -1655,20 +1686,20 @@ function favoritesFetchSection(id) {
                                             <h4>Recommended videos:<h4>
                                             `
                     if(responseJSON.favorites[i].thursday.exercise[0] != "null") {
-                        section.innerHTML += ` 
+                        content += ` 
                                             <iframe width="280" height="210"
                                                 src=${responseJSON.favorites[i].thursday.exercise[0]}>
                                             </iframe>
                                             `
                     }
                     if(responseJSON.favorites[i].thursday.exercise[1] != "null") {
-                        section.innerHTML += ` 
+                        content += ` 
                                             <iframe width="280" height="210"
                                                 src=${responseJSON.favorites[i].thursday.exercise[1]}>
                                             </iframe>
                                             `
                     }
-                    section.innerHTML += `         
+                    content+= `         
                                         </section>
                                         <section>
                                             <h3>Friday:<h3>
@@ -1676,31 +1707,31 @@ function favoritesFetchSection(id) {
                                             <h4>Recommended videos:<h4>
                                             `
                     if(responseJSON.favorites[i].friday.exercise[0] != "null") {
-                        section.innerHTML += ` 
+                        content += ` 
                                             <iframe width="280" height="210"
                                                 src=${responseJSON.favorites[i].friday.exercise[0]}>
                                             </iframe>
                                             `
                     }
                     if(responseJSON.favorites[i].friday.exercise[1] != "null") {
-                        section.innerHTML += ` 
+                        content += ` 
                                             <iframe width="280" height="210"
                                                 src=${responseJSON.favorites[i].friday.exercise[1]}>
                                             </iframe>
                                             `
                     }
-                    section.innerHTML += `                  
+                    content += `                  
                                     </div>
-                                    <button onclick=eraseFavorite(${i})>Erase routine</button>
+                                    <button class = "eraseFavoriteRoutine"onclick=eraseFavorite(${i})>Erase routine</button>
                                 </div> 
                     `
                 }
             } else {
-                section.innerHTML += `
+                content += `
                 <p>You dont have favorites, please add one.<p>
                 `
             }
-            
+            section.innerHTML = content
         })
         .catch( err => {
             console.log(err.message)

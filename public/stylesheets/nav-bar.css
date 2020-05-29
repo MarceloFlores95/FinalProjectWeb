@@ -27,7 +27,7 @@ color: white;
 
 /* Right-aligned section inside the top navigation */
 .topnav-right {
-float: right;
+  float: right;
 }
   
 .topnav .logo a  {

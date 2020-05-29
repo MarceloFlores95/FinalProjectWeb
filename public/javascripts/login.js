@@ -51,12 +51,16 @@ function init() {
     let registerButton = document.querySelector(".registerButton");
     let loginButton = document.querySelector(".loginButton");
 
+    loginButton.style.backgroundColor= "#CACACA"
+
     registerButton.addEventListener('click',(event) => {
         event.preventDefault();
         x.style.left = "-400px";
         y.style.left = "50px";
         z.style.left = "110px"
         // register();
+        registerButton.style.backgroundColor= "#CACACA"
+        loginButton.style.backgroundColor= "white"
     },false)
 
     loginButton.addEventListener('click',(event) => {
@@ -64,6 +68,9 @@ function init() {
         y.style.left = "450px";
         z.style.left = "0px"
         // login();
+        registerButton.style.backgroundColor= "white"
+        loginButton.style.backgroundColor= "#CACACA"
+
     },false)
 }
 
